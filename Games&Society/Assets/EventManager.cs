@@ -8,7 +8,11 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
 
+    //Tick event
     private event Action onTickEvent;
+    //Do something when clicked
+    private event Action<Transform> onClickEvent;
+
     private float deltaTime;
 
     //Invokes the event every ticksPerSecond
@@ -26,6 +30,14 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void onClick(Transform transform)
+    {
+        if (onClickEvent != null)
+        {
+            onClickEvent(transform);
+        }
+    }
+
     //Register a method with onTickEvent
     public void registerToTickEvent(Action a)
     {
@@ -36,6 +48,16 @@ public class EventManager : MonoBehaviour
     public void unregisterToTickEvent(Action a)
     {
         onTickEvent -= a;
+    }
+
+    public void registerToClickEvent(Action<Transform> a)
+    {
+        onClickEvent += a;
+    }
+
+    public void unregisterToClickEvent(Action<Transform> a)
+    {
+        onClickEvent -= a;
     }
 
     private void init()
