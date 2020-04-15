@@ -20,10 +20,12 @@ public class LightPuzzleGen : MonoBehaviour
         return lpn;
     }
 
+    //Creates a lightPuzzle at the given position with the given number of nodes, and makes it a child
     public LightPuzzle newPuzzle(Vector2 pos, int nodeCount)
     {
         GameObject g = Object.Instantiate(this.lightPuzzlePrefab);
         LightPuzzle lp = g.GetComponent<LightPuzzle>();
+        lp.transform.SetParent(this.transform);
         lp.setLocalPos(pos);
         lp.initPuzzle(nodeCount);
         return lp;
@@ -36,6 +38,10 @@ public class LightPuzzleGen : MonoBehaviour
     
     void Start()
     {
-        this.newPuzzle(new Vector2(0, 0), 6);
+        /*
+        this.newPuzzle(new Vector2(5, 0), 4);
+        this.newPuzzle(new Vector2(0, 0), 5);
+        this.newPuzzle(new Vector2(-5, 0), 6);
+        */
     }
 }

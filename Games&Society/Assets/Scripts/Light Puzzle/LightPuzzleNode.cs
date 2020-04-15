@@ -64,12 +64,13 @@ public class LightPuzzleNode : MonoBehaviour
         {
             lpn.on = !lpn.on;
         }
-        this.procChangeEvent();
+        this.changeEvents();
     }
 
-    private void procChangeEvent()
+    private void changeEvents()
     {
-        EventManager.instance.onLightPuzzleSwitch(this.on);
+        this.getPuzzle().checkForCompletion(this);
+        EventManager.instance.onLightPuzzleSwitch(this);
     }
 
     public bool checkForCompletion()
@@ -135,5 +136,10 @@ public class LightPuzzleNode : MonoBehaviour
     public bool sameNode(LightPuzzleNode lpn)
     {
         return this.gridPos.Equals(lpn.gridPos);
+    }
+
+    public LightPuzzle getPuzzle()
+    {
+        return this.transform.parent.GetComponent<LightPuzzle>();
     }
 }

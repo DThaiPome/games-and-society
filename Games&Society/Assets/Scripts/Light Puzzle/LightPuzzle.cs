@@ -14,11 +14,6 @@ public class LightPuzzle : MonoBehaviour
         this.nodes = new List<LightPuzzleNode>();
     }
 
-    void Start()
-    {
-        EventManager.instance.onLightPuzzleSwitchEvent += checkForCompletion;
-    }
-
     void Update()
     {
         foreach(LightPuzzleNode lpn in this.nodes)
@@ -32,17 +27,10 @@ public class LightPuzzle : MonoBehaviour
         this.transform.localPosition = pos;
     }
 
-    //Checks if the game is won, and does something if it is
-    private void checkForCompletion(bool newState)
+    //Checks if the game is won, and does something if it is, starting at the given node
+    public void checkForCompletion(LightPuzzleNode lpn)
     {
-        LightPuzzleNode lpn = this.nodes[0];
-        bool win = false;
-        if (lpn != null)
-        {
-            win = lpn.checkForCompletion();
-        }
-
-        if (win)
+        if (lpn.checkForCompletion())
         {
             Debug.Log("WIN (Put something here lol)");
         }

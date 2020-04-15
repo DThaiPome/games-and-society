@@ -16,7 +16,7 @@ public class EventManager : MonoBehaviour
 
     //**LIGHT SWITCH PUZZLE EVENTS
     //Whenever a switch is changed
-    public event Action<bool> onLightPuzzleSwitchEvent;
+    public event Action<LightPuzzleNode> onLightPuzzleSwitchEvent;
 
     private float deltaTime;
 
@@ -43,11 +43,11 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onLightPuzzleSwitch(bool newState)
+    public void onLightPuzzleSwitch(LightPuzzleNode lpn)
     {
         if (onLightPuzzleSwitchEvent != null)
         {
-            onLightPuzzleSwitchEvent(newState);
+            onLightPuzzleSwitchEvent(lpn);
         }
     }
 
