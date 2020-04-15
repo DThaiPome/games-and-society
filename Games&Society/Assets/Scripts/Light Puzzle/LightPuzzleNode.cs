@@ -22,7 +22,7 @@ public class LightPuzzleNode : MonoBehaviour
 
     void Start()
     {
-        EventManager.instance.registerToClickEvent(changeThis);
+        EventManager.instance.onClickEvent += changeThis;
     }
 
     void Update()
@@ -64,37 +64,30 @@ public class LightPuzzleNode : MonoBehaviour
         {
             lpn.on = !lpn.on;
         }
-        //TODO: also get rid of this and put it somewhere else. Maybe like an event or something
-        this.checkForCompletion();
+        this.procChangeEvent();
     }
 
-    private void checkForCompletion()
+    private void procChangeEvent()
     {
-        this.puzzleComplete(new List<LightPuzzleNode>());
+        EventManager.instance.onLightPuzzleSwitch(this.on);
+    }
+
+    public bool checkForCompletion()
+    {
+        return this.puzzleComplete(new List<LightPuzzleNode>());
     }
 
     private bool puzzleComplete(List<LightPuzzleNode> alreadyChecked)
     {
-        if (!this.on)
+        alreadyChecked.Add(this);
+        foreach (LightPuzzleNode neighbor in neighbors)
         {
-            return false;
-        }
-        else
-        {
-            alreadyChecked.Add(this);
-            foreach (LightPuzzleNode neighbor in neighbors)
+            if (!this.containsNode(alreadyChecked, neighbor) && !neighbor.puzzleComplete(alreadyChecked))
             {
-                if (this.containsNode(alreadyChecked, neighbor))
-                {
-                    break;
-                }   
-                if (!neighbor.puzzleComplete(alreadyChecked))
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
         }
+        return this.on;
     }
 
     private bool containsNode(List<LightPuzzleNode> list, LightPuzzleNode lpn)

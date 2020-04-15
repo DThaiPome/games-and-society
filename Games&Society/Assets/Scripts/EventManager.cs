@@ -8,10 +8,15 @@ public class EventManager : MonoBehaviour
 {
     public static EventManager instance;
 
+    //** MAIN EVENTS
     //Tick event
-    private event Action onTickEvent;
+    public event Action onTickEvent;
     //Do something when clicked
-    private event Action<Transform> onClickEvent;
+    public event Action<Transform> onClickEvent;
+
+    //**LIGHT SWITCH PUZZLE EVENTS
+    //Whenever a switch is changed
+    public event Action<bool> onLightPuzzleSwitchEvent;
 
     private float deltaTime;
 
@@ -38,26 +43,12 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    //Register a method with onTickEvent
-    public void registerToTickEvent(Action a)
+    public void onLightPuzzleSwitch(bool newState)
     {
-        onTickEvent += a;
-    }
-
-    //Unregister a method with onTickEvent
-    public void unregisterToTickEvent(Action a)
-    {
-        onTickEvent -= a;
-    }
-
-    public void registerToClickEvent(Action<Transform> a)
-    {
-        onClickEvent += a;
-    }
-
-    public void unregisterToClickEvent(Action<Transform> a)
-    {
-        onClickEvent -= a;
+        if (onLightPuzzleSwitchEvent != null)
+        {
+            onLightPuzzleSwitchEvent(newState);
+        }
     }
 
     private void init()
