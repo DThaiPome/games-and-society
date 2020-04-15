@@ -285,5 +285,9 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-Assets\EventManager.cs
-Assets\ObjectClicker.cs
+Assets\Scripts\EventManager.cs
+"Assets\Scripts\Light Puzzle\LightPuzzle.cs"
+"Assets\Scripts\Light Puzzle\LightPuzzleGen.cs"
+"Assets\Scripts\Light Puzzle\LightPuzzleNode.cs"
+Assets\Scripts\ObjectClicker.cs
+Assets\Scripts\Utils\BinaryMatrix.cs
