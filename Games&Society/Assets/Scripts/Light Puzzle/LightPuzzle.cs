@@ -31,8 +31,21 @@ public class LightPuzzle : MonoBehaviour
     public void initPuzzle(int nodeCount)
     {
         this.initNodes(nodeCount);
-        int matchesNeeded = this.matches() - this.requiredMatches();
-        this.makeRandomMatches(matchesNeeded);
+        this.setNeighbors();
+        this.changeRandomly(Random.Range(1, nodeCount));
+    }
+
+    public void changeRandomly(int nodeCount)
+    {
+        List<LightPuzzleNode> unpickedNodes = new List<LightPuzzleNode>(this.nodes);
+        while(nodeCount > 0)
+        {
+            int i = Random.Range(0, unpickedNodes.Count);
+            LightPuzzleNode lpn = unpickedNodes[i];
+            unpickedNodes.RemoveAt(i);
+            lpn.change();
+            nodeCount--;
+        }
     }
 
     //Initializes the nodes in a list
@@ -50,8 +63,6 @@ public class LightPuzzle : MonoBehaviour
             int nodesToCreate = Random.Range(0, maxNodes) + 1;
             nodesLeft -= nodesToCreate - this.createRandomNodesAround(current, nodesToCreate, workList);
         }
-
-        this.setNeighbors();
     }
 
     private void setNeighbors()
@@ -94,13 +105,8 @@ public class LightPuzzle : MonoBehaviour
 
             if (!this.nodeExistsAt(gp))
             {
-                Debug.Log(gp);
                 count--;
                 LightPuzzleNode node = this.newNode(gp);
-                if (Random.value < 0.5)
-                {
-                    node.change();
-                }
                 q.Enqueue(node);
             }
         }
@@ -131,58 +137,6 @@ public class LightPuzzle : MonoBehaviour
             }
         }
         return null;
-    }
-
-    private int requiredMatches()
-    {
-        BinaryMatrix matrix = this.puzzleToMatrix();
-
-        matrix.rowEchelonForm();
-        return matrix.zeroRows();
-    }
-
-    private BinaryMatrix puzzleToMatrix()
-    {
-        BinaryMatrix matrix = new BinaryMatrix(this.nodes.Count, this.nodes.Count);
-        for (int i = 0; i < this.nodes.Count; i++)
-        {
-            for (int j = 0; j < this.nodes.Count; j++)
-            {
-                if (this.nodes[i].neighborsWith(this.nodes[j]))
-                {
-                    matrix.set(1, j, i);
-                }
-            }
-        }
-
-        return matrix;
-    }
-
-    private int matches()
-    {
-        int count = 0;
-        for(int i = 0; i < this.nodes.Count; i++)
-        {
-            count += this.nodes[i].matches();
-        }
-
-        return count / 2;
-    }
-
-    private void makeRandomMatches(int matches)
-    {
-        List<LightPuzzleNode> unpickedNodes = new List<LightPuzzleNode>(this.nodes);
-        while(matches > 0 && unpickedNodes.Count > 0)
-        {
-            int i = Random.Range(0, unpickedNodes.Count);
-            if (unpickedNodes[i].matchWithRandomNeighbor())
-            {
-                matches--;
-            } else
-            {
-                unpickedNodes.RemoveAt(i);
-            }
-        }
     }
 
     private LightPuzzleNode newNode(Vector2 gridPos)

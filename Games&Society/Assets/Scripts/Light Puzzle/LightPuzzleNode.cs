@@ -7,7 +7,9 @@ public class LightPuzzleNode : MonoBehaviour
     [SerializeField]
     private bool on;
 
-    public Animator anim;
+    public SpriteRenderer renderer;
+    public Sprite onSprite;
+    public Sprite offSprite;
 
     Vector2 gridPos;
     private List<LightPuzzleNode> neighbors;
@@ -25,7 +27,13 @@ public class LightPuzzleNode : MonoBehaviour
 
     void Update()
     {
-        this.anim.SetBool("on", this.on);
+        if (this.on)
+        {
+            renderer.sprite = this.onSprite;
+        } else
+        {
+            renderer.sprite = this.offSprite;
+        }
     }
 
     private void changeThis(Transform t)
@@ -101,36 +109,6 @@ public class LightPuzzleNode : MonoBehaviour
         return false;
     }
 
-    //Matches states with a random neighbor. Returns false if this node is matched with all neighbors,
-    //and true otherwise.
-    public bool matchWithRandomNeighbor()
-    {
-        List<LightPuzzleNode> unpickedNodes = new List<LightPuzzleNode>(this.neighbors);
-        while(unpickedNodes.Count > 0)
-        {
-            int i = Random.Range(0, unpickedNodes.Count);
-            LightPuzzleNode lpn = unpickedNodes[i];
-            unpickedNodes.RemoveAt(i);
-            if (this.matchWith(lpn))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //Matches states with the given LPN. Returns false if this node is already matched, and
-    //true otherwise.
-    private bool matchWith(LightPuzzleNode lpn)
-    {
-        if (this.on != lpn.on)
-        {
-            this.on = lpn.on;
-            return true;
-        }
-        return false;
-    }
-
     //Returns the count of neighbors around this node
     public int neighborCount()
     {
@@ -154,19 +132,6 @@ public class LightPuzzleNode : MonoBehaviour
     public void makeNeighborsWith(LightPuzzleNode lpn)
     {
         this.neighbors.Add(lpn);
-    }
-
-    public int matches()
-    {
-        int count = 0;
-        foreach(LightPuzzleNode lpn in this.neighbors)
-        {
-            if (this.on == lpn.on)
-            {
-                count++;
-            }
-        }
-        return count;
     }
 
     public Vector2 getGridPos()

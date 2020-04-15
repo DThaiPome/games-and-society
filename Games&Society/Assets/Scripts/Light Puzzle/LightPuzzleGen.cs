@@ -36,6 +36,6 @@ public class LightPuzzleGen : MonoBehaviour
     
     void Start()
     {
-        this.newPuzzle(new Vector2(0, 0), 3);
+        this.newPuzzle(new Vector2(0, 0), 10);
     }
 }
