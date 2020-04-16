@@ -26,6 +26,7 @@ public class ObjectClicker : MonoBehaviour
         Ray ray = this.camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100.0f))
         {
+            Debug.Log("a");
             if (hit.transform != null)
             {
                 EventManager.instance.onClick(hit.transform);

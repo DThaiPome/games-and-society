@@ -44,6 +44,5 @@ public class GameTime : MonoBehaviour
     {
         this.minute++;
         EventManager.instance.onMinute(this.minute);
-        Debug.Log(this.minute);
     }
 }
