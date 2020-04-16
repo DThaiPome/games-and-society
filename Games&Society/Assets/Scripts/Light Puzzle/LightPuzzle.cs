@@ -7,6 +7,9 @@ public class LightPuzzle : MonoBehaviour
     [SerializeField]
     private float widthBetweenNodes;
 
+    [HideInInspector]
+    public int nodeCount { get; private set; }
+
     private List<LightPuzzleNode> nodes;
 
     void Awake()
@@ -39,6 +42,7 @@ public class LightPuzzle : MonoBehaviour
     //Initializes a random puzzle with the given number of nodes
     public void initPuzzle(int nodeCount)
     {
+        this.nodeCount = nodeCount;
         this.initNodes(nodeCount);
         this.setNeighbors();
         this.changeRandomly(Random.Range(1, nodeCount));
@@ -120,6 +124,19 @@ public class LightPuzzle : MonoBehaviour
             }
         }
 
+        return count;
+    }
+
+    public int onNodeCount()
+    {
+        int count = 0;
+        foreach(LightPuzzleNode lpn in this.nodes)
+        {
+            if (lpn.on)
+            {
+                count++;
+            }
+        }
         return count;
     }
 

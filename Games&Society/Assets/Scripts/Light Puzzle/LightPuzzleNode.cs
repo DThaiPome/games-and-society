@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightPuzzleNode : MonoBehaviour
 {
     [SerializeField]
-    private bool on;
+    public bool on { get; private set; }
 
     public SpriteRenderer renderer;
     public Sprite onSprite;
