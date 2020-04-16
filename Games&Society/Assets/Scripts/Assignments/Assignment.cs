@@ -4,10 +4,13 @@ using UnityEngine;
 
 public abstract class Assignment
 {
+    protected static int nextID;
+
     protected Transform transform;
     protected int minuteStart;
     protected int minuteDue;
     protected float difficulty;
+    protected int id;
 
 
     public Assignment(Transform transform, int minuteStart, int minuteDue, float difficulty)
@@ -16,6 +19,8 @@ public abstract class Assignment
         this.minuteStart = minuteStart;
         this.minuteDue = minuteDue;
         this.difficulty = difficulty;
+        this.id = nextID;
+        nextID++;
     }
 
     //Generate the assignment
