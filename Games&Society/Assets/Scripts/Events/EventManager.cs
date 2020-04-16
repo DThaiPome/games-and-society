@@ -14,13 +14,17 @@ public class EventManager : MonoBehaviour
     private GameObject tickEventPrefab;
     //Do something when clicked
     public event Action<Transform> onClickEvent;
+    //Notices of changes in difficulty
+    public event Action<float> onDifficultyChangedEvent;
 
     //** GAME TIME EVENTS
-    public event Action<int> onMinuteEvent;
+    public event Action<int, int, int> onMinuteEvent;
 
     //** LIGHT SWITCH PUZZLE EVENTS
     //Whenever a switch is changed
     public event Action<LightPuzzleNode> onLightPuzzleSwitchEvent;
+
+    //** ASSIGNMENT EVENTS
 
     private float deltaTime;
 
@@ -49,11 +53,19 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    public void onMinute(int minute)
+    public void onMinute(int day, int minute, int minutesPerDay)
     {
         if (onMinuteEvent != null)
         {
-            onMinuteEvent(minute);
+            onMinuteEvent(day, minute, minutesPerDay);
+        }
+    }
+
+    public void onDifficultyChanged(float difficulty)
+    {
+        if (onDifficultyChangedEvent != null)
+        {
+            onDifficultyChanged(difficulty);
         }
     }
 
