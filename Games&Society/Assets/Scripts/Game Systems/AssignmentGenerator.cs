@@ -52,7 +52,9 @@ public class AssignmentGenerator : MonoBehaviour
             int deviation = Random.Range(0, this.getMaxDeviation());
             if (minute >= this.nextAssignmentTime - deviation)
             {
-                this.assignments.Add(this.generateAssignment());
+                Assignment a = this.generateAssignment();
+                this.assignments.Add(a);
+                EventManager.instance.onAssignmentCreated(a);
                 this.nextAssignmentTime = minute + this.getNextAssignmentTime();
             }
         }

@@ -10,7 +10,7 @@ public abstract class Assignment
     protected int minuteStart;
     protected int minuteDue;
     protected float difficulty;
-    protected int id;
+    public int id { get; private set; }
 
 
     public Assignment(Transform transform, int minuteStart, int minuteDue, float difficulty)

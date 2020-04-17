@@ -25,6 +25,8 @@ public class EventManager : MonoBehaviour
     public event Action<LightPuzzleNode> onLightPuzzleSwitchEvent;
 
     //** ASSIGNMENT EVENTS
+    //Whenever an assignment is created
+    public event Action<Assignment> onAssignmentCreatedEvent;
 
     private float deltaTime;
 
@@ -66,6 +68,14 @@ public class EventManager : MonoBehaviour
         if (onDifficultyChangedEvent != null)
         {
             onDifficultyChangedEvent(difficulty);
+        }
+    }
+
+    public void onAssignmentCreated(Assignment assignment)
+    {
+        if (onAssignmentCreatedEvent != null)
+        {
+            onAssignmentCreatedEvent(assignment);
         }
     }
 
