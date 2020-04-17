@@ -39,7 +39,7 @@ public class LightPuzzleAssignment : Assignment
             LightPuzzleGen.instance
             .newPuzzle(
                 new Vector2(0, -this.spaceBetweenPuzzles / 2),
-                nodes,
+                nodes + 1,
                 this.transform));
         } else
         {
@@ -47,13 +47,13 @@ public class LightPuzzleAssignment : Assignment
             LightPuzzleGen.instance
             .newPuzzle(
                 new Vector2(this.spaceBetweenPuzzles / 2, -this.spaceBetweenPuzzles / 2),
-                nodes,
+                nodes + 1,
                 this.transform));
             this.puzzles.Add(
                 LightPuzzleGen.instance
                 .newPuzzle(
                     new Vector2(-this.spaceBetweenPuzzles / 2, -this.spaceBetweenPuzzles / 2),
-                    nodes,
+                    nodes + 1,
                     this.transform));
         }
     }
@@ -85,7 +85,7 @@ public class LightPuzzleAssignment : Assignment
 
     private int difficultyToPuzzleCount()
     {
-        return this.difficulty >= 0.4 ? 4 : 1;
+        return this.difficulty >= 0.4 ? 4 : 3;
     }
 
     public override void show()

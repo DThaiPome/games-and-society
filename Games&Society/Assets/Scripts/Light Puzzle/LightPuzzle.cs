@@ -57,7 +57,10 @@ public class LightPuzzle : MonoBehaviour
             LightPuzzleNode lpn = unpickedNodes[i];
             unpickedNodes.RemoveAt(i);
             lpn.change();
-            nodeCount--;
+            if (nodeCount != 1 || !lpn.checkForCompletion())
+            {
+                nodeCount--;
+            }
         }
     }
 

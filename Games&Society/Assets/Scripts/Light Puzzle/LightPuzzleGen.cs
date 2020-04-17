@@ -25,7 +25,7 @@ public class LightPuzzleGen : MonoBehaviour
     {
         GameObject g = Object.Instantiate(this.lightPuzzlePrefab);
         LightPuzzle lp = g.GetComponent<LightPuzzle>();
-        t.SetParent(this.transform);
+        g.transform.SetParent(t);
         lp.setLocalPos(pos);
         lp.initPuzzle(nodeCount);
         return lp;

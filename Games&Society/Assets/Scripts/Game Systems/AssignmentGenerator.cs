@@ -14,8 +14,9 @@ public class AssignmentGenerator : MonoBehaviour
     private int baseDeviation;
     [SerializeField]
     private int minDeviation;
-    [SerializeField]
+
     private List<Assignment> assignments;
+
     [SerializeField]
     private Transform assignmentTransform;
 
