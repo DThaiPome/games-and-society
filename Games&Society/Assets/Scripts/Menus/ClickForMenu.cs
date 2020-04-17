@@ -6,11 +6,7 @@ using UnityEngine;
 public class ClickForMenu : MonoBehaviour
 {
     [SerializeField]
-    private MenuController mc;
-
-    [Tooltip("For menu action: Use \"open\", \"close\", or \"switch\"")]
-    [SerializeField]
-    private string menuAction;
+    private string menuName;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,33 +17,7 @@ public class ClickForMenu : MonoBehaviour
     {
         if (t.Equals(this.transform))
         {
-            switch(this.menuAction)
-            {
-                case "open":
-                    this.openMenu();
-                    break;
-                case "close":
-                    this.closeMenu();
-                    break;
-                case "switch":
-                    this.switchMenu();
-                    break;
-            }
+            EventManager.instance.switchToMenu(this.menuName);
         }
-    }
-
-    private void switchMenu()
-    {
-        this.mc.switchMenu();
-    }
-
-    private void openMenu()
-    {
-        this.mc.open();
-    }
-
-    private void closeMenu()
-    {
-        this.mc.close();
     }
 }

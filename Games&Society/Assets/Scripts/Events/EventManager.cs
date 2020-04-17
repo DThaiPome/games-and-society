@@ -17,6 +17,10 @@ public class EventManager : MonoBehaviour
     //Notices of changes in difficulty
     public event Action<float> onDifficultyChangedEvent;
 
+    //** MENU EVENTS
+    //Whenever the player tries to switch to a menu
+    public event Action<string> switchToMenuEvent;
+
     //** GAME TIME EVENTS
     public event Action<int, int, int> onMinuteEvent;
 
@@ -79,6 +83,13 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void switchToMenu(string menu)
+    {
+        if (switchToMenuEvent != null)
+        {
+            switchToMenuEvent(menu);
+        }
+    }
     private void init()
     {
         this.deltaTime = 0;
