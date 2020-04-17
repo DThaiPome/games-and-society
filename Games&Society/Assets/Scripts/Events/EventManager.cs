@@ -31,6 +31,8 @@ public class EventManager : MonoBehaviour
     //** ASSIGNMENT EVENTS
     //Whenever an assignment is created
     public event Action<Assignment> onAssignmentCreatedEvent;
+    //Assignment selection changed in the assignment view
+    public event Action<Assignment, int> assignmentViewSelectionChangeEvent;
 
     private float deltaTime;
 
@@ -90,6 +92,15 @@ public class EventManager : MonoBehaviour
             switchToMenuEvent(menu);
         }
     }
+
+    public void assignmentViewSelectionChanged(Assignment assignment, int index)
+    {
+        if (assignmentViewSelectionChangeEvent != null)
+        {
+            assignmentViewSelectionChangeEvent(assignment, index);
+        }
+    }
+
     private void init()
     {
         this.deltaTime = 0;

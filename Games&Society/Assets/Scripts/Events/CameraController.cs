@@ -5,6 +5,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
+    private string defaultView;
+    [Header("View Positions")]
+    [SerializeField]
     private Vector2 deskViewOrigin;
     [SerializeField]
     private Vector2 assignmentViewOrigin;
@@ -13,12 +16,13 @@ public class CameraController : MonoBehaviour
 
     void Awake()
     {
-        this.currentOrigin = this.deskViewOrigin;
+        
     }
 
     void Start()
     {
         EventManager.instance.switchToMenuEvent += this.switchView;
+        EventManager.instance.switchToMenu(this.defaultView);
     }
 
     void Update()
