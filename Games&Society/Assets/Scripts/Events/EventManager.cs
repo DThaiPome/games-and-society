@@ -28,7 +28,7 @@ public class EventManager : MonoBehaviour
 
     private float deltaTime;
 
-    public TickEvent newTickEvent(int secondsPerTick)
+    public TickEvent newTickEvent(float secondsPerTick)
     {
         GameObject g = UnityEngine.Object.Instantiate(this.tickEventPrefab);
         g.transform.SetParent(this.transform);
@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour
     {
         if (onDifficultyChangedEvent != null)
         {
-            onDifficultyChanged(difficulty);
+            onDifficultyChangedEvent(difficulty);
         }
     }
 

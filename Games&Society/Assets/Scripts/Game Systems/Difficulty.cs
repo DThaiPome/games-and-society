@@ -20,7 +20,6 @@ public class Difficulty : MonoBehaviour
         if (this.prevDifficulty != this.difficulty)
         {
             EventManager.instance.onDifficultyChanged(this.difficulty);
-            Debug.Log(this.difficulty);
         }
         this.prevDifficulty = this.difficulty;
     }
