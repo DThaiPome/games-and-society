@@ -103,4 +103,12 @@ public class LightPuzzleAssignment : Assignment
             lp.gameObject.SetActive(false);
         }
     }
+
+    public override void remove()
+    {
+        foreach (LightPuzzle lp in this.puzzles)
+        {
+            Object.Destroy(lp.gameObject);
+        }
+    }
 }

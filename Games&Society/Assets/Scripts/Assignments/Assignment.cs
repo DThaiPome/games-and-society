@@ -37,4 +37,7 @@ public abstract class Assignment
 
     //Hide all assignment components
     public abstract void hide();
+
+    //Destroy assignment
+    public abstract void remove();
 }

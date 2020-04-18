@@ -26,6 +26,7 @@ public class AssignmentView : MonoBehaviour
     void Start()
     {
         EventManager.instance.onAssignmentCreatedEvent += this.assignmentAdded;
+        EventManager.instance.onSubmitClickedEvent += this.submit;
     }
 
     void Update()
@@ -99,6 +100,26 @@ public class AssignmentView : MonoBehaviour
                 this.assignments[i].hide();
             }
         }
+    }
+
+    private void submit()
+    {
+        if (this.assignments.Count > 0)
+        {
+            Assignment a = this.selectedAssignment;
+            float grade = a.grade();
+            Debug.Log(grade);
+            this.removeAssignment(this.selectedIndex);
+            EventManager.instance.onAssignmentSubmit(a, grade);
+
+        }
+    }
+
+    private void removeAssignment(int index)
+    {
+        this.assignments.RemoveAt(index);
+        this.selectedAssignment.remove();
+        this.selectedAssignment = null;
     }
 
     private Assignment getAssignment(int index)

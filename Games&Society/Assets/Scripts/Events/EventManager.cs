@@ -33,6 +33,10 @@ public class EventManager : MonoBehaviour
     public event Action<Assignment> onAssignmentCreatedEvent;
     //Assignment selection changed in the assignment view
     public event Action<Assignment, int> assignmentViewSelectionChangeEvent;
+    //Submit is clicked
+    public event Action onSubmitClickedEvent;
+    //Whenever an assignment is submitted
+    public event Action<Assignment, float> onAssignmentSubmitEvent;
 
     private float deltaTime;
 
@@ -98,6 +102,22 @@ public class EventManager : MonoBehaviour
         if (assignmentViewSelectionChangeEvent != null)
         {
             assignmentViewSelectionChangeEvent(assignment, index);
+        }
+    }
+
+    public void onAssignmentSubmit(Assignment assignment, float grade)
+    {
+        if (onAssignmentSubmitEvent != null)
+        {
+            onAssignmentSubmitEvent(assignment, grade);
+        }
+    }
+
+    public void onSubmitClicked()
+    {
+        if (onSubmitClickedEvent != null)
+        {
+            onSubmitClickedEvent();
         }
     }
 
