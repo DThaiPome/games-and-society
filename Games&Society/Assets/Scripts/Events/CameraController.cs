@@ -6,23 +6,34 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private string defaultView;
-    [Header("View Positions")]
-    [SerializeField]
-    private Vector2 deskViewOrigin;
-    [SerializeField]
-    private Vector2 assignmentViewOrigin;
+
+    private List<GameObject> viewObjects;
 
     private Vector2 currentOrigin;
 
-    void Awake()
-    {
-        
-    }
-
     void Start()
     {
+        this.initViewList();
         EventManager.instance.switchToMenuEvent += this.switchView;
         EventManager.instance.switchToMenu(this.defaultView);
+    }
+
+    private void initViewList()
+    {
+        this.viewObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("View Object"));
+    }
+
+    private Vector2 getViewPos(string viewName)
+    {
+        foreach (GameObject g in this.viewObjects)
+        {
+            if (g.GetComponent<ViewControl>().viewName == viewName)
+            {
+                return g.transform.position;
+            }
+        }
+
+        return new Vector2(0, 0);
     }
 
     void Update()
@@ -32,15 +43,7 @@ public class CameraController : MonoBehaviour
 
     private void switchView(string view)
     {
-        switch(view)
-        {
-            case "Desk":
-                this.currentOrigin = this.deskViewOrigin;
-                break;
-            case "Assignment":
-                this.currentOrigin = this.assignmentViewOrigin;
-                break;
-        }
+        this.currentOrigin = this.getViewPos(view);
     }
 
     private void moveCamera()

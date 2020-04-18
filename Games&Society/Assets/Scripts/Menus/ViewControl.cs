@@ -5,7 +5,14 @@ using UnityEngine;
 public class ViewControl : MonoBehaviour
 {
     [SerializeField]
-    private string viewName;
+    private string setViewName;
+
+    public string viewName { get; private set; }
+
+    void Awake()
+    {
+        this.viewName = this.setViewName;
+    }
 
     void Start()
     {

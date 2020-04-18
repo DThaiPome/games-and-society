@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 261460820}
   m_Layer: 0
   m_Name: DeskViewObjects
-  m_TagString: Untagged
+  m_TagString: View Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca141fffce64294c9dccbda483ab209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewName: Desk
+  setViewName: Desk
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,8 +388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultView: Desk
-  deskViewOrigin: {x: 0, y: 0}
-  assignmentViewOrigin: {x: -50, y: 0}
 --- !u!4 &565593212
 Transform:
   m_ObjectHideFlags: 0
@@ -511,7 +509,7 @@ GameObject:
   - component: {fileID: 789393079}
   m_Layer: 0
   m_Name: AssignmentViewObjects
-  m_TagString: Untagged
+  m_TagString: View Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca141fffce64294c9dccbda483ab209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewName: Assignment
+  setViewName: Assignment
 --- !u!1 &1675114143
 GameObject:
   m_ObjectHideFlags: 0
