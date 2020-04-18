@@ -38,7 +38,7 @@ public class LightPuzzleNode : MonoBehaviour
 
     private void changeThis(Transform t)
     {
-        if (t.Equals(this.transform))
+        if (this.transform != null && t.Equals(this.transform))
         {
             this.change();
         }
@@ -141,5 +141,10 @@ public class LightPuzzleNode : MonoBehaviour
     public LightPuzzle getPuzzle()
     {
         return this.transform.parent.GetComponent<LightPuzzle>();
+    }
+
+    public void destroy()
+    {
+        EventManager.instance.onClickEvent -= this.changeThis;
     }
 }

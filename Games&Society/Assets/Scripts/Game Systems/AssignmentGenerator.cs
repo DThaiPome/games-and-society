@@ -15,8 +15,6 @@ public class AssignmentGenerator : MonoBehaviour
     [SerializeField]
     private int minDeviation;
 
-    private List<Assignment> assignments;
-
     [SerializeField]
     private Transform assignmentTransform;
 
@@ -33,11 +31,6 @@ public class AssignmentGenerator : MonoBehaviour
         "Light Switch Puzzle"
     };
 
-    void Awake()
-    {
-        this.assignments = new List<Assignment>();
-    }
-
     void Start()
     {
         EventManager.instance.onDifficultyChangedEvent += this.setDifficulty;
@@ -53,7 +46,6 @@ public class AssignmentGenerator : MonoBehaviour
             if (minute >= this.nextAssignmentTime - deviation)
             {
                 Assignment a = this.generateAssignment();
-                this.assignments.Add(a);
                 EventManager.instance.onAssignmentCreated(a);
                 this.nextAssignmentTime = minute + this.getNextAssignmentTime();
             }

@@ -67,6 +67,7 @@ public class LightPuzzleAssignment : Assignment
             totalNodes += lp.nodeCount;
             onNodes += lp.onNodeCount();
         }
+        Debug.Log(onNodes + " / " + totalNodes);
         return (float)onNodes / (float)totalNodes;
     }
 
@@ -80,7 +81,7 @@ public class LightPuzzleAssignment : Assignment
     {
         int maxNodes = 10;
         float C = 0.9f;
-        return (int)(maxNodes * Mathf.Sqrt(C * this.difficulty));
+        return Mathf.Max(3, (int)(maxNodes * Mathf.Sqrt(C * this.difficulty)));
     }
 
     private int difficultyToPuzzleCount()
@@ -104,11 +105,11 @@ public class LightPuzzleAssignment : Assignment
         }
     }
 
-    public override void remove()
+    public override void destroy()
     {
         foreach (LightPuzzle lp in this.puzzles)
         {
-            Object.Destroy(lp.gameObject);
+            lp.destroy();
         }
     }
 }

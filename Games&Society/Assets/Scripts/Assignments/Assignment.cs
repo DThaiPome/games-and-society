@@ -39,5 +39,5 @@ public abstract class Assignment
     public abstract void hide();
 
     //Destroy assignment
-    public abstract void remove();
+    public abstract void destroy();
 }

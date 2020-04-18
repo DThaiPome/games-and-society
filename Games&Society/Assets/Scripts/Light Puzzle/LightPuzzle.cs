@@ -10,6 +10,8 @@ public class LightPuzzle : MonoBehaviour
     [HideInInspector]
     public int nodeCount { get; private set; }
 
+    private bool puzzleStarted;
+
     private List<LightPuzzleNode> nodes;
 
     void Awake()
@@ -33,7 +35,7 @@ public class LightPuzzle : MonoBehaviour
     //Checks if the game is won, and does something if it is, starting at the given node
     public void checkForCompletion(LightPuzzleNode lpn)
     {
-        if (lpn.checkForCompletion())
+        if (this.puzzleStarted && lpn.checkForCompletion())
         {
             Debug.Log("WIN (Put something here lol)");
         }
@@ -42,10 +44,12 @@ public class LightPuzzle : MonoBehaviour
     //Initializes a random puzzle with the given number of nodes
     public void initPuzzle(int nodeCount)
     {
+        this.puzzleStarted = false;
         this.nodeCount = nodeCount;
         this.initNodes(nodeCount);
         this.setNeighbors();
         this.changeRandomly(Random.Range(1, nodeCount));
+        this.puzzleStarted = true;
     }
 
     public void changeRandomly(int nodeCount)
@@ -174,5 +178,14 @@ public class LightPuzzle : MonoBehaviour
         this.nodes.Add(lpn);
         lpn.transform.SetParent(this.transform);
         return lpn;
+    }
+
+    public void destroy()
+    {
+        foreach(LightPuzzleNode lpn in this.nodes)
+        {
+            lpn.destroy();
+        }
+        Object.Destroy(this.gameObject);
     }
 }

@@ -100,6 +100,7 @@ public class AssignmentView : MonoBehaviour
                 this.assignments[i].hide();
             }
         }
+        this.selectedAssignment = this.getAssignment(this.prevSelectedIndex);
     }
 
     private void submit()
@@ -108,7 +109,6 @@ public class AssignmentView : MonoBehaviour
         {
             Assignment a = this.selectedAssignment;
             float grade = a.grade();
-            Debug.Log(grade);
             this.removeAssignment(this.selectedIndex);
             EventManager.instance.onAssignmentSubmit(a, grade);
 
@@ -118,13 +118,13 @@ public class AssignmentView : MonoBehaviour
     private void removeAssignment(int index)
     {
         this.assignments.RemoveAt(index);
-        this.selectedAssignment.remove();
+        this.selectedAssignment.destroy();
         this.selectedAssignment = null;
     }
 
     private Assignment getAssignment(int index)
     {
-        if (index < -1 || index >= this.assignments.Count)
+        if (index < 0 || index >= this.assignments.Count)
         {
             return null;
         } else
