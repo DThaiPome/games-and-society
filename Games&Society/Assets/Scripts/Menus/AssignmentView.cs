@@ -8,6 +8,9 @@ public class AssignmentView : MonoBehaviour
 
     [SerializeField]
     private int selectedIndex;
+    [Tooltip("Switch to this scene by pressing ESC")]
+    [SerializeField]
+    private string escapeToScene;
     private int prevSelectedIndex;
 
     private Assignment selectedAssignment;
@@ -23,13 +26,34 @@ public class AssignmentView : MonoBehaviour
     void Start()
     {
         EventManager.instance.onAssignmentCreatedEvent += this.assignmentAdded;
-        EventManager.instance.switchToMenuEvent += this.viewSwitched;
-        EventManager.instance.assignmentViewSelectionChangeEvent += this.changeSelectedAssignmentTo;
     }
 
     void Update()
     {
-        
+        this.manageSelectedIndex();
+        this.manageSelectedAssignment();
+        this.viewControls();
+    }
+
+    private void viewControls()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            this.selectedIndex++;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            this.selectedIndex--;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            this.returnToDesk();
+        }
+    }
+
+    private void returnToDesk()
+    {
+        EventManager.instance.switchToMenu(this.escapeToScene);
     }
 
     private void manageSelectedIndex()
@@ -63,6 +87,20 @@ public class AssignmentView : MonoBehaviour
         this.selectedAssignment = assignment;
     }
 
+    private void manageSelectedAssignment()
+    {
+        for (int i = 0; i < this.assignments.Count; i++)
+        {
+            if (this.selectedIndex == i)
+            {
+                this.assignments[i].show();
+            } else
+            {
+                this.assignments[i].hide();
+            }
+        }
+    }
+
     private Assignment getAssignment(int index)
     {
         if (index < -1 || index >= this.assignments.Count)
@@ -77,16 +115,5 @@ public class AssignmentView : MonoBehaviour
     private void assignmentAdded(Assignment assignment)
     {
         this.assignments.Add(assignment);
-    }
-
-    private void viewSwitched(string view)
-    {
-        if (view == "Assignment View")
-        {
-            this.gameObject.SetActive(true);
-        } else
-        {
-            this.gameObject.SetActive(false);
-        }
     }
 }

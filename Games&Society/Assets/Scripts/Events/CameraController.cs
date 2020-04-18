@@ -34,10 +34,10 @@ public class CameraController : MonoBehaviour
     {
         switch(view)
         {
-            case "Desk View":
+            case "Desk":
                 this.currentOrigin = this.deskViewOrigin;
                 break;
-            case "Assignment View":
+            case "Assignment":
                 this.currentOrigin = this.assignmentViewOrigin;
                 break;
         }
