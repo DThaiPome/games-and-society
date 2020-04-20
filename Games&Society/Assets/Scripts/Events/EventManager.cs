@@ -38,6 +38,10 @@ public class EventManager : MonoBehaviour
     //Whenever an assignment is submitted
     public event Action<Assignment, float> onAssignmentSubmitEvent;
 
+    //** LAPTOP EVENTS
+    //Whenever a tab button is pressed
+    public event Action<string> switchToTabEvent;
+
     private float deltaTime;
 
     public TickEvent newTickEvent(float secondsPerTick)
@@ -118,6 +122,14 @@ public class EventManager : MonoBehaviour
         if (onSubmitClickedEvent != null)
         {
             onSubmitClickedEvent();
+        }
+    }
+
+    public void switchToTab(string tab)
+    {
+        if (switchToTabEvent != null)
+        {
+            switchToTabEvent(tab);
         }
     }
 

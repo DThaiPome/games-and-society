@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - View Object
+  - Tab Object
   layers:
   - Default
   - TransparentFX
