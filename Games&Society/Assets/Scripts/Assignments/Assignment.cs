@@ -10,6 +10,9 @@ public abstract class Assignment
     protected int minuteStart;
     protected int minuteDue;
     protected float difficulty;
+
+    public bool overdue { get; private set; }
+
     public int id { get; private set; }
 
 
@@ -21,6 +24,23 @@ public abstract class Assignment
         this.difficulty = difficulty;
         this.id = nextID;
         nextID++;
+    }
+
+    void Start()
+    {
+        EventManager.instance.onMinuteEvent += isOverDue;
+    }
+
+    //Is this assignment overdue?
+    private void isOverDue(int day, int minute, int minutesPerDay)
+    {
+        if (minute > this.minuteDue)
+        {
+            this.overdue = true;
+        } else
+        {
+            this.overdue = false;
+        }
     }
 
     //Generate the assignment

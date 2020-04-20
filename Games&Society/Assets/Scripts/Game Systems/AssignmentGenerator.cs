@@ -45,7 +45,7 @@ public class AssignmentGenerator : MonoBehaviour
             int deviation = Random.Range(0, this.getMaxDeviation());
             if (minute >= this.nextAssignmentTime - deviation)
             {
-                Assignment a = this.generateAssignment();
+                Assignment a = this.generateAssignment(minute);
                 EventManager.instance.onAssignmentCreated(a);
                 this.nextAssignmentTime = minute + this.getNextAssignmentTime();
             }
@@ -64,14 +64,14 @@ public class AssignmentGenerator : MonoBehaviour
         return Mathf.Max((int)Mathf.Round(mod * this.getNextAssignmentTime()), this.minDeviation);
     }
 
-    private Assignment generateAssignment()
+    private Assignment generateAssignment(int minute)
     {
         switch (this.getRandomType()) {
             case "Light Switch Puzzle":
                 return new LightPuzzleAssignment(
                     this.assignmentTransform, 
                     this.nextAssignmentTime, 
-                    this.getNextCompletionTime(), 
+                    minute + this.getNextCompletionTime(), 
                     this.difficulty, 
                     this.spaceBetweenPuzzles);
             default:
