@@ -744,11 +744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdaf8c85a23e8aa4eb7060013d3ce4d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseCompletionMinutes: 120
+  baseCompletionMinutes: 60
   minCompletionMinutes: 30
-  baseAssignmentDelay: 60
-  baseDeviation: 20
-  minDeviation: 10
+  baseAssignmentDelay: 30
+  baseDeviation: 15
+  minDeviation: 5
   assignmentTransform: {fileID: 789393077}
   spaceBetweenPuzzles: 5
 --- !u!114 &689841591
@@ -794,15 +794,15 @@ MonoBehaviour:
   health: 0
   totalGrade: 0
   difficultyWeight: 0.25
-  ongoingAssignmentWeight: 1
-  overdueAssignmentWeight: 3
+  ongoingAssignmentWeight: 0.25
+  overdueAssignmentWeight: 1
   gradeWeight: 1
-  neutralRoof: 33
-  midHealthRoof: 66
-  maxHealth: 100
-  neutralFloor: -33
-  midUnhealthFloor: -66
-  minHealth: -100
+  neutralRoof: 16
+  midHealthRoof: 33
+  maxHealth: 50
+  neutralFloor: -16
+  midUnhealthFloor: -33
+  minHealth: -50
   healthFromWatering: 2
 --- !u!1 &697122366
 GameObject:

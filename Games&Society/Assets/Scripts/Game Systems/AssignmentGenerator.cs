@@ -66,7 +66,7 @@ public class AssignmentGenerator : MonoBehaviour
 
     private int getNextAssignmentTime()
     {
-        float mod = 2;
+        float mod = 0.25f;
         return (int)Mathf.Round((float)this.baseAssignmentDelay / ((mod * this.difficulty) + 1));
     }
 
