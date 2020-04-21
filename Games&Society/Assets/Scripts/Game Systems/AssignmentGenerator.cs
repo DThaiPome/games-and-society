@@ -35,7 +35,19 @@ public class AssignmentGenerator : MonoBehaviour
     {
         EventManager.instance.onDifficultyChangedEvent += this.setDifficulty;
         EventManager.instance.onMinuteEvent += this.generateAssignmentAtTime;
+        EventManager.instance.onNextDayEvent += this.onNextDay;
+        this.initGenerator();
+    }
+
+
+    private void initGenerator()
+    {
         this.nextAssignmentTime = this.getNextAssignmentTime();
+    }
+
+    private void onNextDay(int day)
+    {
+        this.initGenerator();
     }
 
     private void generateAssignmentAtTime(int day, int minute, int minutesPerDay)

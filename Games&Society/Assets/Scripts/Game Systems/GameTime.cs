@@ -47,6 +47,7 @@ public class GameTime : MonoBehaviour
         {
             this.day++;
             this.minute = 0;
+            EventManager.instance.onNextDay(this.day);
         }
         EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
     }

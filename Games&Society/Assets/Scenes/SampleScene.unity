@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8c127e5840b3a489fd74bb8f9c5491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  day: 4
+  day: 0
   minute: 0
   minutesInDay: 540
 --- !u!4 &689841588
@@ -796,7 +796,7 @@ MonoBehaviour:
   difficultyWeight: 0.25
   ongoingAssignmentWeight: 1
   overdueAssignmentWeight: 3
-  gradeWeight: 3
+  gradeWeight: 1
   neutralRoof: 33
   midHealthRoof: 66
   maxHealth: 100

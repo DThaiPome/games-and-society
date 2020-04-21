@@ -22,7 +22,10 @@ public class EventManager : MonoBehaviour
     public event Action<string> switchToMenuEvent;
 
     //** GAME TIME EVENTS
+    //Every minute
     public event Action<int, int, int> onMinuteEvent;
+    //At the end of the day
+    public event Action<int> onNextDayEvent;
 
     //** LIGHT SWITCH PUZZLE EVENTS
     //Whenever a switch is changed
@@ -172,6 +175,14 @@ public class EventManager : MonoBehaviour
         if (onSpigotClickedEvent != null)
         {
             onSpigotClickedEvent();
+        }
+    }
+
+    public void onNextDay(int day)
+    {
+        if (onNextDayEvent != null)
+        {
+            onNextDayEvent(day);
         }
     }
 
