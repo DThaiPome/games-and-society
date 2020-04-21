@@ -36,8 +36,17 @@ public class PlantSystem : MonoBehaviour
     [SerializeField]
     private float minHealth;
 
+    [Header("Water")]
+    [SerializeField]
+    private float healthFromWatering;
+    [SerializeField]
+    private float defaultSquirts;
+    [SerializeField]
+    private float squirts;
+
     private List<Assignment> assignments;
     private float difficulty;
+    private TickEvent waterFillTickEvent;
 
     void Awake()
     {
@@ -52,17 +61,23 @@ public class PlantSystem : MonoBehaviour
         EventManager.instance.onAssignmentSubmitEvent += this.assignmentSubmitted;
         EventManager.instance.onMinuteEvent += this.onMinute;
         EventManager.instance.onDifficultyChangedEvent += this.updateDifficulty;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.waterFillTickEvent = EventManager.instance.newTickEvent(1);
     }
 
     private void onMinute(int day, int minute, int minutesPerDay)
     {
         this.updatePlantHealth();
+        this.tickPlantValues();
+    }
+
+    private void tickPlantValues()
+    {
+
+    }
+
+    private void waterPlant()
+    {
+        this.addToHealth(this.healthFromWatering);
     }
 
     private void updatePlantHealth()
@@ -74,9 +89,17 @@ public class PlantSystem : MonoBehaviour
         float overdueAssignmentEffect = -(Mathf.Pow(overdueAssignments, 2)) * this.overdueAssignmentWeight;
         float gradeEffect = -Mathf.Sqrt(1 - this.totalGrade) * this.gradeWeight;
 
-        float deltaHealth = ((this.difficulty * this.difficultyWeight) + 1) * (ongoingAssignmentEffect + overdueAssignmentEffect + gradeEffect);
+        float deltaHealth = ((this.difficulty * this.difficultyWeight) + 1)
+            * (ongoingAssignmentEffect
+            + overdueAssignmentEffect
+            + gradeEffect);
 
-        this.health = Mathf.Clamp(this.health + deltaHealth, this.minHealth, this.maxHealth);
+        this.addToHealth(deltaHealth);
+    }
+
+    private void addToHealth(float dH)
+    {
+        this.health = Mathf.Clamp(this.health + dH, this.minHealth, this.maxHealth);
     }
 
     private int getOverdueAssignmentCount()
