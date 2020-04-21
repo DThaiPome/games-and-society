@@ -49,6 +49,8 @@ public class EventManager : MonoBehaviour
     public event Action onPlantWateredEvent;
     //Bottle Stand clicked
     public event Action onBottleStandClickedEvent;
+    //Spigot clicked
+    public event Action onSpigotClickedEvent;
 
     private float deltaTime;
 
@@ -162,6 +164,14 @@ public class EventManager : MonoBehaviour
         if (onBottleStandClickedEvent != null)
         {
             onBottleStandClickedEvent();
+        }
+    }
+
+    public void onSpigotClicked()
+    {
+        if (onSpigotClickedEvent != null)
+        {
+            onSpigotClickedEvent();
         }
     }
 

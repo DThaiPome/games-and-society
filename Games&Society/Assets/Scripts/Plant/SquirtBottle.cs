@@ -11,7 +11,7 @@ public class SquirtBottle : MonoBehaviour
     [SerializeField]
     private float secondsPerSquirt;
     [SerializeField]
-    private float secondsPerSquirtRefill;
+    private float secondsPerRefill;
     [SerializeField]
     private int squirts;
 
@@ -27,7 +27,9 @@ public class SquirtBottle : MonoBehaviour
     {
         EventManager.instance.onPlantClickedEvent += this.plantClicked;
         EventManager.instance.onBottleStandClickedEvent += this.bottleStandClicked;
-        this.waterRefillTick = EventManager.instance.newTickEvent(this.secondsPerSquirt);
+        EventManager.instance.onSpigotClickedEvent += this.spigotClicked;
+        this.waterRefillTick = EventManager.instance.newTickEvent(this.secondsPerRefill);
+        this.waterRefillTick.register(this.refillSquirt);
         this.squirtTick = EventManager.instance.newTickEvent(this.secondsPerSquirt);
         this.squirtTick.register(this.doneSquirting);
         this.defaultPos = transform.localPosition;
@@ -36,6 +38,36 @@ public class SquirtBottle : MonoBehaviour
     void OnDisable()
     {
         this.placeBottle();
+    }
+
+    private void spigotClicked()
+    {
+        if (!this.refilling && !this.holdingSquirtBottle && this.squirts != this.maxSquirts)
+        {
+            this.startRefill();
+        }
+    }
+
+    private void startRefill()
+    {
+        this.refilling = true;
+        this.waterRefillTick.resetAndStop();
+        this.waterRefillTick.start();
+    }
+
+    private void refillSquirt()
+    {
+        this.squirts++;
+        if (this.squirts == this.maxSquirts)
+        {
+            this.endRefill();
+        }
+    }
+
+    private void endRefill()
+    {
+        this.waterRefillTick.stop();
+        this.refilling = false;
     }
 
     private void bottleStandClicked()
@@ -56,7 +88,10 @@ public class SquirtBottle : MonoBehaviour
 
     private void pickUpBottle()
     {
-        this.holdingSquirtBottle = true;
+        if (!this.refilling)
+        {
+            this.holdingSquirtBottle = true;
+        }
     }
 
     private void plantClicked()

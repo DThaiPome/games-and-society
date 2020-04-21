@@ -49,7 +49,7 @@ public class TickEvent : MonoBehaviour
 
     public void init(float secondsPerTick)
     {
-        this.secondsPerTick = secondsPerTick;
+        this.secondsPerTick = secondsPerTick != 0 ? secondsPerTick : 1;
     }
 
     public void start()
