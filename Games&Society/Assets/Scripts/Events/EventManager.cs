@@ -42,6 +42,14 @@ public class EventManager : MonoBehaviour
     //Whenever a tab button is pressed
     public event Action<string> switchToTabEvent;
 
+    //** PLANT EVENTS
+    //Whenever the plant is clicked
+    public event Action onPlantClickedEvent;
+    //Plant is watered
+    public event Action onPlantWateredEvent;
+    //Bottle Stand clicked
+    public event Action onBottleStandClickedEvent;
+
     private float deltaTime;
 
     public TickEvent newTickEvent(float secondsPerTick)
@@ -130,6 +138,30 @@ public class EventManager : MonoBehaviour
         if (switchToTabEvent != null)
         {
             switchToTabEvent(tab);
+        }
+    }
+
+    public void onPlantClicked()
+    {
+        if (onPlantClickedEvent != null)
+        {
+            onPlantClickedEvent();
+        }
+    }
+
+    public void onPlantWatered()
+    {
+        if (onPlantWateredEvent != null)
+        {
+            onPlantWateredEvent();
+        }
+    }
+
+    public void onBottleStandClicked()
+    {
+        if (onBottleStandClickedEvent != null)
+        {
+            onBottleStandClickedEvent();
         }
     }
 

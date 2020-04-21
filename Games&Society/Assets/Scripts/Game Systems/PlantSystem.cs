@@ -39,14 +39,9 @@ public class PlantSystem : MonoBehaviour
     [Header("Water")]
     [SerializeField]
     private float healthFromWatering;
-    [SerializeField]
-    private float defaultSquirts;
-    [SerializeField]
-    private float squirts;
 
     private List<Assignment> assignments;
     private float difficulty;
-    private TickEvent waterFillTickEvent;
 
     void Awake()
     {
@@ -61,23 +56,18 @@ public class PlantSystem : MonoBehaviour
         EventManager.instance.onAssignmentSubmitEvent += this.assignmentSubmitted;
         EventManager.instance.onMinuteEvent += this.onMinute;
         EventManager.instance.onDifficultyChangedEvent += this.updateDifficulty;
-        this.waterFillTickEvent = EventManager.instance.newTickEvent(1);
+        EventManager.instance.onPlantWateredEvent += this.waterPlant;
     }
 
     private void onMinute(int day, int minute, int minutesPerDay)
     {
         this.updatePlantHealth();
-        this.tickPlantValues();
-    }
-
-    private void tickPlantValues()
-    {
-
     }
 
     private void waterPlant()
     {
         this.addToHealth(this.healthFromWatering);
+        Debug.Log(this.health);
     }
 
     private void updatePlantHealth()
