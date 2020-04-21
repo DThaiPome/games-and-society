@@ -11,10 +11,16 @@ public class SquirtBottle : MonoBehaviour
     [SerializeField]
     private float secondsPerSquirt;
     [SerializeField]
+    private float secondsPerSquirtRefill;
+    [SerializeField]
     private int squirts;
 
     private TickEvent waterRefillTick;
+    private TickEvent squirtTick;
     private Vector3 defaultPos;
+
+    private bool squirting;
+    private bool refilling;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +28,8 @@ public class SquirtBottle : MonoBehaviour
         EventManager.instance.onPlantClickedEvent += this.plantClicked;
         EventManager.instance.onBottleStandClickedEvent += this.bottleStandClicked;
         this.waterRefillTick = EventManager.instance.newTickEvent(this.secondsPerSquirt);
+        this.squirtTick = EventManager.instance.newTickEvent(this.secondsPerSquirt);
+        this.squirtTick.register(this.doneSquirting);
         this.defaultPos = transform.localPosition;
     }
 
@@ -53,16 +61,30 @@ public class SquirtBottle : MonoBehaviour
 
     private void plantClicked()
     {
-        if (this.holdingSquirtBottle && this.squirts > 0)
-        {
-            this.waterPlant();
-        }
+        this.waterPlant();
     }
 
     private void waterPlant()
     {
-        EventManager.instance.onPlantWatered();
-        this.squirts--;
+        if (!this.squirting && this.holdingSquirtBottle && this.squirts > 0)
+        {
+            this.startSquirt();
+            EventManager.instance.onPlantWatered();
+            this.squirts--;
+        }
+    }
+
+    private void startSquirt()
+    {
+        this.squirting = true;
+        this.squirtTick.resetAndStop();
+        this.squirtTick.start();
+    }
+
+    private void doneSquirting()
+    {
+        this.squirting = false;
+        this.squirtTick.stop();
     }
 
     // Update is called once per frame

@@ -1674,7 +1674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdingSquirtBottle: 0
   maxSquirts: 5
-  secondsPerSquirt: 0
+  secondsPerSquirt: 0.33333334
+  secondsPerSquirtRefill: 0
   squirts: 5
 --- !u!212 &1576122036
 SpriteRenderer:
