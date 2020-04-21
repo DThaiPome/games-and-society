@@ -746,8 +746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseCompletionMinutes: 120
   minCompletionMinutes: 30
-  baseAssignmentDelay: 100
-  baseDeviation: 30
+  baseAssignmentDelay: 60
+  baseDeviation: 20
   minDeviation: 10
   assignmentTransform: {fileID: 789393077}
   spaceBetweenPuzzles: 5

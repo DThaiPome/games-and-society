@@ -43,6 +43,11 @@ public class GameTime : MonoBehaviour
     private void advanceMinute()
     {
         this.minute++;
+        if (this.minute == this.minutesInDay)
+        {
+            this.day++;
+            this.minute = 0;
+        }
         EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
     }
 }

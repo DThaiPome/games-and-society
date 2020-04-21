@@ -67,7 +67,6 @@ public class PlantSystem : MonoBehaviour
     private void waterPlant()
     {
         this.addToHealth(this.healthFromWatering);
-        Debug.Log(this.health);
     }
 
     private void updatePlantHealth()
