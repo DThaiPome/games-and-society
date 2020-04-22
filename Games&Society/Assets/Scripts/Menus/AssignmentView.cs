@@ -28,6 +28,7 @@ public class AssignmentView : MonoBehaviour
         EventManager.instance.onAssignmentCreatedEvent += this.assignmentAdded;
         EventManager.instance.onSubmitClickedEvent += this.submit;
         EventManager.instance.onNextDayEvent += this.onNextDay;
+        EventManager.instance.onAssignmentArrowClickEvent += this.onArrowClick;
     }
 
     void Update()
@@ -48,6 +49,11 @@ public class AssignmentView : MonoBehaviour
         {
             this.submitAt(0);
         }
+    }
+
+    private void onArrowClick(int direction)
+    {
+        this.selectedIndex += direction;
     }
 
     private void viewControls()

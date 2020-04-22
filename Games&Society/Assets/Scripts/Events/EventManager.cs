@@ -40,6 +40,8 @@ public class EventManager : MonoBehaviour
     public event Action onSubmitClickedEvent;
     //Whenever an assignment is submitted
     public event Action<Assignment, float> onAssignmentSubmitEvent;
+    //Clicking the left or right scroll arrows
+    public event Action<int> onAssignmentArrowClickEvent;
 
     //** LAPTOP EVENTS
     //Whenever a tab button is pressed
@@ -193,6 +195,14 @@ public class EventManager : MonoBehaviour
         if (onNotificationEvent != null)
         {
             onNotificationEvent();
+        }
+    }
+
+    public void onAssignmentArrowClick(int direction)
+    {
+        if (onAssignmentArrowClickEvent != null)
+        {
+            onAssignmentArrowClickEvent(direction);
         }
     }
 
