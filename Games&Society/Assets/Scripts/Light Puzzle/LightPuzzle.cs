@@ -75,7 +75,7 @@ public class LightPuzzle : MonoBehaviour
         Queue<LightPuzzleNode> workList = new Queue<LightPuzzleNode>();
         workList.Enqueue(this.newNode(new Vector2(0, 0)));
         int nodesLeft = nodeCount - 1;
-        while (nodesLeft > 0)
+        while (nodesLeft > 0 && workList.Count > 0)
         {
             LightPuzzleNode current = workList.Dequeue();
 
@@ -123,7 +123,7 @@ public class LightPuzzle : MonoBehaviour
             Vector2 gp = unpickedGridPos[i];
             unpickedGridPos.RemoveAt(i);
 
-            if (!this.nodeExistsAt(gp))
+            if (!this.nodeExistsAt(gp) && Mathf.Abs(gp.x) <= 2 && Mathf.Abs(gp.y) <= 2)
             {
                 count--;
                 LightPuzzleNode node = this.newNode(gp);

@@ -14,6 +14,10 @@ public class SquirtBottle : MonoBehaviour
     private float secondsPerRefill;
     [SerializeField]
     private int squirts;
+    [SerializeField]
+    private Sprite defaultSprite;
+    [SerializeField]
+    private Sprite tiltedSprite;
 
     private TickEvent waterRefillTick;
     private TickEvent squirtTick;
@@ -42,7 +46,7 @@ public class SquirtBottle : MonoBehaviour
 
     private void spigotClicked()
     {
-        if (!this.refilling && !this.holdingSquirtBottle && this.squirts != this.maxSquirts)
+        if (!this.refilling && !this.squirting && !this.holdingSquirtBottle && this.squirts != this.maxSquirts)
         {
             this.startRefill();
         }
@@ -126,6 +130,20 @@ public class SquirtBottle : MonoBehaviour
     void Update()
     {
         this.manageBottlePos();
+        this.lazyAnimate();
+    }
+
+    private void lazyAnimate()
+    {
+        SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
+        if (this.squirting || this.refilling)
+        {
+            sp.sprite = this.tiltedSprite;
+        }
+        else
+        {
+            sp.sprite = this.defaultSprite;
+        }
     }
 
     private void manageBottlePos()

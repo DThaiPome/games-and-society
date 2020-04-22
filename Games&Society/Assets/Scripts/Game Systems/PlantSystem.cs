@@ -84,6 +84,7 @@ public class PlantSystem : MonoBehaviour
             + gradeEffect);
 
         this.addToHealth(deltaHealth);
+        EventManager.instance.onPlantStateChanged(this.healthToState());
     }
 
     private void addToHealth(float dH)

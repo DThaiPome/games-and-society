@@ -58,6 +58,8 @@ public class EventManager : MonoBehaviour
     public event Action onBottleStandClickedEvent;
     //Spigot clicked
     public event Action onSpigotClickedEvent;
+    //Plant state is changed
+    public event Action<int> onPlantStateChangedEvent;
 
     private float deltaTime;
 
@@ -203,6 +205,14 @@ public class EventManager : MonoBehaviour
         if (onAssignmentArrowClickEvent != null)
         {
             onAssignmentArrowClickEvent(direction);
+        }
+    }
+
+    public void onPlantStateChanged(int state)
+    {
+        if (onPlantStateChangedEvent != null)
+        {
+            onPlantStateChangedEvent(state);
         }
     }
 

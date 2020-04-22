@@ -73,15 +73,18 @@ public class LightPuzzleAssignment : Assignment
 
     public override string emailHeader()
     {
-        //TODO: Make a "toTime" method in GameTime .. or something
-        return "You have a new math assignment due at " + this.minuteDue;
+        int hour = Utils.minutesToMilitaryHour(this.minuteDue);
+        int minute = Utils.minutesToHourlyMinute(this.minuteDue);
+        string hourText = hour < 10 ? "0" + hour : "" + hour;
+        string minuteText = minute < 10 ? "0" + minute : "" + minute;
+        return "You have a new math assignment due at " + hourText + ":" + minuteText;
     }
 
     private int difficultyToNodeCount()
     {
         int maxNodes = 10;
         float C = 0.9f;
-        return Mathf.Max(3, (int)(maxNodes * Mathf.Sqrt(C * this.difficulty)));
+        return Mathf.Clamp((int)(maxNodes * Mathf.Sqrt(C * this.difficulty)), 3, 24);
     }
 
     private int difficultyToPuzzleCount()

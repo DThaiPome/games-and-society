@@ -166,6 +166,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b641328987622ac4ca03e22d8d4917d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  neutralSprite: {fileID: 21300000, guid: aaf8807ea987a80438371f74342923dd, type: 3}
+  goodSprite: {fileID: 21300000, guid: 939fcf103e95da14a873110a1a5c64cb, type: 3}
+  greatSprite: {fileID: 21300000, guid: dd8737c7710e006429578124139bcf02, type: 3}
+  badSprite: {fileID: 21300000, guid: fe5f2f1518a2a41429d746664491df7f, type: 3}
+  deadSprite: {fileID: 21300000, guid: 3b662ffaedfc10f4bb9f6e2297067a20, type: 3}
 --- !u!135 &52424805
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1054,7 +1059,7 @@ MonoBehaviour:
   baseDeviation: 15
   minDeviation: 5
   assignmentTransform: {fileID: 789393077}
-  spaceBetweenPuzzles: 5
+  spaceBetweenPuzzles: 5.1
 --- !u!114 &689841591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2202,6 +2207,8 @@ MonoBehaviour:
   secondsPerSquirt: 0.33333334
   secondsPerRefill: 0.5
   squirts: 5
+  defaultSprite: {fileID: 21300000, guid: 9106cbbdaa3e2b045a230799d3e0e41b, type: 3}
+  tiltedSprite: {fileID: 21300000, guid: 906db2e59f2852d43af54d29443b46ab, type: 3}
 --- !u!212 &1576122036
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2786,8 +2793,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -11.585248, y: 4.9976497}
-  m_SizeDelta: {x: 23.171001, y: 9.9947}
+  m_AnchoredPosition: {x: -12.7, y: 4.9976497}
+  m_SizeDelta: {x: 23.170874, y: 9.9947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124016541
 MonoBehaviour:
@@ -2820,7 +2827,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Day 8 - 88:888
+  m_Text: Day 8 - 88:88
 --- !u!222 &2124016542
 CanvasRenderer:
   m_ObjectHideFlags: 0
