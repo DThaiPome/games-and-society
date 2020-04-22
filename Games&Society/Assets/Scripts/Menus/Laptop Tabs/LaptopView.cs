@@ -13,8 +13,21 @@ public class LaptopView : MonoBehaviour
         this.switchToDefaultTab();
     }
 
+    void Start()
+    {
+        EventManager.instance.onAssignmentCreatedEvent += this.newAssignment;
+    }
+
     private void switchToDefaultTab()
     {
         EventManager.instance.switchToTab(this.defaultTab);
+    }
+
+    private void newAssignment(Assignment a)
+    {
+        if (!this.gameObject.activeInHierarchy)
+        {
+            EventManager.instance.onNotification();
+        }
     }
 }

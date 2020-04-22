@@ -44,6 +44,8 @@ public class EventManager : MonoBehaviour
     //** LAPTOP EVENTS
     //Whenever a tab button is pressed
     public event Action<string> switchToTabEvent;
+    //Whenever a notification is necessary
+    public event Action onNotificationEvent;
 
     //** PLANT EVENTS
     //Whenever the plant is clicked
@@ -183,6 +185,14 @@ public class EventManager : MonoBehaviour
         if (onNextDayEvent != null)
         {
             onNextDayEvent(day);
+        }
+    }
+
+    public void onNotification()
+    {
+        if (onNotificationEvent != null)
+        {
+            onNotificationEvent();
         }
     }
 

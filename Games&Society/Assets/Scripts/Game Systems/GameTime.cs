@@ -27,6 +27,7 @@ public class GameTime : MonoBehaviour
         this.ticker.register(advanceMinute);
         this.ticker.reset();
         this.ticker.start();
+        EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
     }
 
     public void resetGameTime()
