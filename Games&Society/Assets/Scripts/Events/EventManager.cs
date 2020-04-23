@@ -42,6 +42,8 @@ public class EventManager : MonoBehaviour
     public event Action<Assignment, float> onAssignmentSubmitEvent;
     //Clicking the left or right scroll arrows
     public event Action<int> onAssignmentArrowClickEvent;
+    //Clicking on a to-do list item
+    public event Action<ToDoItem> toDoListItemClickedEvent;
 
     //** LAPTOP EVENTS
     //Whenever a tab button is pressed
@@ -216,6 +218,13 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    public void toDoListItemClicked(ToDoItem toDoItem)
+    {
+        if (toDoListItemClickedEvent != null)
+        {
+            toDoListItemClickedEvent(toDoItem);
+        }
+    }
     private void init()
     {
         this.deltaTime = 0;

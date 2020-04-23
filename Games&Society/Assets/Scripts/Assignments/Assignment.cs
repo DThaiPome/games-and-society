@@ -49,6 +49,9 @@ public abstract class Assignment
     //The string to display on the notification email
     public abstract string emailHeader();
 
+    //The string to display on the to-do list
+    public abstract string assignmentCode();
+
     //Grade the assignment
     public abstract float grade();
 

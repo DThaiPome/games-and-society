@@ -80,6 +80,24 @@ public class LightPuzzleAssignment : Assignment
         return "You have a new math assignment due at " + hourText + ":" + minuteText;
     }
 
+    public override string assignmentCode()
+    {
+        string idText = "" + this.id;
+        if (this.id < 1000)
+        {
+            idText = "0" + idText;
+            if (this.id < 100)
+            {
+                idText = "0" + idText;
+                if (this.id < 10)
+                {
+                    idText = "0" + idText;
+                }
+            }
+        }
+        return "MAT" + idText;
+    }
+
     private int difficultyToNodeCount()
     {
         int maxNodes = 10;
