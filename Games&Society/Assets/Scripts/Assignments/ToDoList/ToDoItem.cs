@@ -20,32 +20,26 @@ public class ToDoItem : MonoBehaviour
         this.assignment = a;
         this.text.text = this.assignment.assignmentCode();
     }
+    
+    public void clearAssignment()
+    {
+        this.assignment = null;
+        this.text.text = "";
+    }
 
     private void onClick(Transform t)
     {
         if (t.Equals(this.transform))
         {
-            EventManager.instance.toDoListItemClicked(this);
+            if (this.assignment != null)
+            {
+                EventManager.instance.toDoListItemClicked(this);
+            }
         }
     }
 
     public int getID()
     {
         return this.assignment.id;
-    }
-
-    public void hide()
-    {
-        this.gameObject.SetActive(false);
-    }
-
-    public void show()
-    {
-        this.gameObject.SetActive(true);
-    }
-
-    public void destroy()
-    {
-        Object.Destroy(this.gameObject);
     }
 }
