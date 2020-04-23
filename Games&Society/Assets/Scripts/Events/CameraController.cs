@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField]
     private string defaultView;
+    [SerializeField]
+    private float viewWidth;
 
     private List<GameObject> viewObjects;
 
@@ -14,6 +16,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         this.initViewList();
+        this.initPosition();
         EventManager.instance.switchToMenuEvent += this.switchView;
         EventManager.instance.switchToMenu(this.defaultView);
     }
@@ -21,6 +24,18 @@ public class CameraController : MonoBehaviour
     private void initViewList()
     {
         this.viewObjects = new List<GameObject>(GameObject.FindGameObjectsWithTag("View Object"));
+    }
+
+    private void initPosition()
+    {
+        /*
+        float fT = this.viewWidth / Screen.width * Screen.height;
+        fT = fT / (2.0f * Mathf.Tan(0.5f * Camera.main.fieldOfView * Mathf.Deg2Rad));
+        Vector3 v3T = Camera.main.transform.localPosition;
+        v3T.z = -fT;
+        Camera.main.transform.localPosition = v3T;*/
+        float width = Mathf.Max(5, (10 * (Screen.height + this.viewWidth)) / (Screen.width));
+        Camera.main.orthographicSize = width;
     }
 
     private Vector2 getViewPos(string viewName)
@@ -49,5 +64,6 @@ public class CameraController : MonoBehaviour
     private void moveCamera()
     {
         this.transform.position = this.currentOrigin;
+        this.initPosition();
     }
 }
