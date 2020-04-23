@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2158825879810184332}
   - component: {fileID: 7617447904677589580}
   - component: {fileID: 1520455792146447783}
+  - component: {fileID: 6903166593383364206}
   m_Layer: 0
   m_Name: ToDoItem
   m_TagString: Untagged
@@ -91,3 +92,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 7617447904677589580}
+--- !u!65 &6903166593383364206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422263971360052477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 1.132979, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

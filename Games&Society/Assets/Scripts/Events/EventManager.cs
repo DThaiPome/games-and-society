@@ -44,6 +44,8 @@ public class EventManager : MonoBehaviour
     public event Action<int> onAssignmentArrowClickEvent;
     //Clicking on a to-do list item
     public event Action<ToDoItem> toDoListItemClickedEvent;
+    //To-Do list is changed in any way
+    public event Action onToDoListUpdateEvent;
 
     //** LAPTOP EVENTS
     //Whenever a tab button is pressed
@@ -225,6 +227,15 @@ public class EventManager : MonoBehaviour
             toDoListItemClickedEvent(toDoItem);
         }
     }
+
+    public void onToDoListUpdate()
+    {
+        if (onToDoListUpdateEvent != null)
+        {
+            onToDoListUpdateEvent();
+        }
+    }
+
     private void init()
     {
         this.deltaTime = 0;

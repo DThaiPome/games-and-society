@@ -29,6 +29,7 @@ public class AssignmentView : MonoBehaviour
         EventManager.instance.onSubmitClickedEvent += this.submit;
         EventManager.instance.onNextDayEvent += this.onNextDay;
         EventManager.instance.onAssignmentArrowClickEvent += this.onArrowClick;
+        EventManager.instance.toDoListItemClickedEvent += this.toDoItemClicked;
     }
 
     void Update()
@@ -36,6 +37,24 @@ public class AssignmentView : MonoBehaviour
         this.manageSelectedIndex();
         this.manageSelectedAssignment();
         this.viewControls();
+    }
+
+    private void toDoItemClicked(ToDoItem tdi)
+    {
+        this.switchToAssignment(tdi.getID());
+    }
+
+    private void switchToAssignment(int assignmentId)
+    {
+        for(int i = 0; i < this.assignments.Count; i++)
+        {
+            Assignment a = this.assignments[i];
+            if (a.id == assignmentId)
+            {
+                this.selectedIndex = i;
+                this.selectedAssignment = a;
+            }
+        }
     }
 
     private void onNextDay(int day)

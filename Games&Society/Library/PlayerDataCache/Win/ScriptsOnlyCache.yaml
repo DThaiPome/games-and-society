@@ -27,6 +27,8 @@ ScriptsOnlyBuild:
     - TabButton
     - TabControl
     - TickEvent
+    - ToDoItem
+    - ToDoList
     - ViewControl
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
@@ -91,51 +93,55 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11696}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11732}
     - Class: 114
-      Script: {instanceID: 11812}
+      Script: {instanceID: 11802}
     - Class: 114
-      Script: {instanceID: 11888}
+      Script: {instanceID: 11814}
     - Class: 114
-      Script: {instanceID: 11924}
+      Script: {instanceID: 11890}
     - Class: 114
-      Script: {instanceID: 11986}
+      Script: {instanceID: 11926}
     - Class: 114
-      Script: {instanceID: 12158}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 12174}
+      Script: {instanceID: 12160}
     - Class: 114
-      Script: {instanceID: 12318}
+      Script: {instanceID: 12176}
     - Class: 114
-      Script: {instanceID: 12334}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12362}
+      Script: {instanceID: 12336}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12364}
     - Class: 114
-      Script: {instanceID: 12650}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12670}
+      Script: {instanceID: 12652}
     - Class: 114
-      Script: {instanceID: 12700}
+      Script: {instanceID: 12672}
     - Class: 114
-      Script: {instanceID: 12746}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12978}
+      Script: {instanceID: 12748}
     - Class: 114
-      Script: {instanceID: 12990}
+      Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 13030}
+      Script: {instanceID: 12992}
     - Class: 114
-      Script: {instanceID: 13068}
+      Script: {instanceID: 13032}
     - Class: 114
-      Script: {instanceID: 13128}
+      Script: {instanceID: 13070}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 13072}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13208}
+      Script: {instanceID: 13142}
+    - Class: 114
+      Script: {instanceID: 13210}
+    - Class: 114
+      Script: {instanceID: 13212}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -361,6 +367,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 5d8e0801cf90bf5ea7139968f45ae4b9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToDoList
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -649,6 +661,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CameraController
+  - hash:
+      serializedVersion: 2
+      Hash: 4ce15e99c635d2567873d27549d1f16f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToDoItem
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268

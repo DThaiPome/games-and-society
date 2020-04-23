@@ -45,7 +45,7 @@ public class ToDoList : MonoBehaviour
 
     void Update()
     {
-        this.manageToDoList();
+        
     }
 
     private void newAssignment(Assignment a)
@@ -87,21 +87,40 @@ public class ToDoList : MonoBehaviour
                 tdi.clearAssignment();
             }
         }
+        EventManager.instance.onToDoListUpdate();
     }
 
-    private void nextPage()
+    public void nextPage()
     {
-        if ((this.page + 1) * this.maxItems > this.assignments.Count)
+        if (this.isNextPage())
         {
             this.page++;
+            this.manageToDoList();
         }
     }
 
-    private void prevPage()
+    public void prevPage()
     {
-        if (this.page > 0)
+        if (this.isPrevPage())
         {
             this.page--;
+            this.manageToDoList();
         }
+    }
+
+    private int pageCount()
+    {
+        Debug.Log(this.assignments.Count + " / " + this.toDoItems.Count);
+        return Mathf.Max(0, (this.assignments.Count - 1) / this.toDoItems.Count);
+    }
+
+    public bool isNextPage()
+    {
+        return this.page < this.pageCount();
+    }
+
+    public bool isPrevPage()
+    {
+        return this.page > 0;
     }
 }
