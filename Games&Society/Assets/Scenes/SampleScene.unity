@@ -3262,7 +3262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emailPrefab: {fileID: 5108856602782114716, guid: 108377c494d79f643bc11ae142abc9aa,
     type: 3}
-  maxEmails: 7
+  maxEmails: 6
 --- !u!114 &2036498649
 MonoBehaviour:
   m_ObjectHideFlags: 0
