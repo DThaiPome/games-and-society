@@ -1,7 +1,6 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - AssignmentArrow
     - AssignmentGenerator
     - AssignmentView
     - CameraController
@@ -9,9 +8,11 @@ ScriptsOnlyBuild:
     - ClickForMenu
     - ClockDisplay
     - Difficulty
+    - DoOnHover
     - Email
     - EmailView
     - EventManager
+    - GameOverDayCount
     - GameTime
     - LaptopView
     - LightPuzzle
@@ -23,10 +24,12 @@ ScriptsOnlyBuild:
     - PlantSystem
     - Spigot
     - SquirtBottle
+    - StartOver
     - SubmitAssignment
     - TabButton
     - TabControl
     - TickEvent
+    - ToDoArrow
     - ToDoItem
     - ToDoList
     - ViewControl
@@ -127,8 +130,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12980}
     - Class: 114
-      Script: {instanceID: 12992}
-    - Class: 114
       Script: {instanceID: 13032}
     - Class: 114
       Script: {instanceID: 13070}
@@ -142,6 +143,14 @@ ScriptsOnlyBuild:
       Script: {instanceID: 13210}
     - Class: 114
       Script: {instanceID: 13212}
+    - Class: 114
+      Script: {instanceID: 24992}
+    - Class: 114
+      Script: {instanceID: 28842}
+    - Class: 114
+      Script: {instanceID: 56454}
+    - Class: 114
+      Script: {instanceID: 58738}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -757,6 +766,30 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: f0444107b58aa732d94735e4369209b6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ToDoArrow
+  - hash:
+      serializedVersion: 2
+      Hash: 3a2c76498c345f8c0221ca66088c1545
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoOnHover
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartOver
+  - hash:
+      serializedVersion: 2
+      Hash: 4ce15e99c635d2567873d27549d1f16f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameOverDayCount
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
