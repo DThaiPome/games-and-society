@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     {
         this.initViewList();
         this.initPosition();
+        EventManager.instance.onGameOverEvent += this.onGameOver;
         EventManager.instance.switchToMenuEvent += this.switchView;
         EventManager.instance.switchToMenu(this.defaultView);
     }
@@ -65,5 +66,10 @@ public class CameraController : MonoBehaviour
     {
         this.transform.position = this.currentOrigin;
         this.initPosition();
+    }
+
+    private void onGameOver()
+    {
+        EventManager.instance.switchToMenu("Game Over");
     }
 }

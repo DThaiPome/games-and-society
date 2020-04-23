@@ -30,6 +30,7 @@ public class AssignmentView : MonoBehaviour
         EventManager.instance.onNextDayEvent += this.onNextDay;
         EventManager.instance.onAssignmentArrowClickEvent += this.onArrowClick;
         EventManager.instance.toDoListItemClickedEvent += this.toDoItemClicked;
+        EventManager.instance.onGameOverEvent += this.onGameOver;
     }
 
     void Update()
@@ -163,6 +164,14 @@ public class AssignmentView : MonoBehaviour
         this.assignments[index].destroy();
         this.assignments.RemoveAt(index);
         this.manageSelectedAssignment();
+    }
+
+    private void onGameOver()
+    {
+        for (int i = 0; i < this.assignments.Count; i++)
+        {
+            this.removeAssignment(i);
+        }
     }
 
     private Assignment getAssignment(int index)

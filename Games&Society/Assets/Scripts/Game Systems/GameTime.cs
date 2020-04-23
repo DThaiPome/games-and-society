@@ -27,6 +27,7 @@ public class GameTime : MonoBehaviour
         this.ticker.register(advanceMinute);
         this.ticker.reset();
         this.ticker.start();
+        EventManager.instance.onGameOverEvent += this.onGameOver;
         EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
     }
 
@@ -51,5 +52,10 @@ public class GameTime : MonoBehaviour
             EventManager.instance.onNextDay(this.day);
         }
         EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
+    }
+
+    private void onGameOver()
+    {
+        this.ticker.stop();
     }
 }

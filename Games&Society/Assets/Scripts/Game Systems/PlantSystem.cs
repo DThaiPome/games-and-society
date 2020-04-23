@@ -62,6 +62,7 @@ public class PlantSystem : MonoBehaviour
     private void onMinute(int day, int minute, int minutesPerDay)
     {
         this.updatePlantHealth();
+        this.gameOver();
     }
 
     private void waterPlant()
@@ -152,6 +153,14 @@ public class PlantSystem : MonoBehaviour
         } else
         {
             return -2;
+        }
+    }
+
+    public void gameOver()
+    {
+        if (this.health == this.minHealth)
+        {
+            EventManager.instance.onGameOver();
         }
     }
 }

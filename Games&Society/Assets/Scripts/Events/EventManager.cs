@@ -20,6 +20,8 @@ public class EventManager : MonoBehaviour
     public event Action<Transform> onHoverEnterEvent;
     //When the mouse stops hovering over something
     public event Action<Transform> onHoverExitEvent;
+    //Game Over
+    public event Action onGameOverEvent;
 
     //** MENU EVENTS
     //Whenever the player tries to switch to a menu
@@ -253,6 +255,14 @@ public class EventManager : MonoBehaviour
         if (onHoverExitEvent != null)
         {
             onHoverExitEvent(transform);
+        }
+    }
+
+    public void onGameOver()
+    {
+        if (onGameOverEvent != null)
+        {
+            onGameOverEvent();
         }
     }
 
