@@ -16,6 +16,10 @@ public class EventManager : MonoBehaviour
     public event Action<Transform> onClickEvent;
     //Notices of changes in difficulty
     public event Action<float> onDifficultyChangedEvent;
+    //When the mouse starts hovering over something
+    public event Action<Transform> onHoverEnterEvent;
+    //When the mouse stops hovering over something
+    public event Action<Transform> onHoverExitEvent;
 
     //** MENU EVENTS
     //Whenever the player tries to switch to a menu
@@ -233,6 +237,22 @@ public class EventManager : MonoBehaviour
         if (onToDoListUpdateEvent != null)
         {
             onToDoListUpdateEvent();
+        }
+    }
+
+    public void onHoverEnter(Transform transform)
+    {
+        if (onHoverEnterEvent != null)
+        {
+            onHoverEnterEvent(transform);
+        }
+    }
+
+    public void onHoverExit(Transform transform)
+    {
+        if (onHoverExitEvent != null)
+        {
+            onHoverExitEvent(transform);
         }
     }
 

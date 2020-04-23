@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 203138686}
   - component: {fileID: 203138685}
   - component: {fileID: 203138688}
+  - component: {fileID: 203138689}
   m_Layer: 0
   m_Name: Desk2Assignments
   m_TagString: Untagged
@@ -487,6 +488,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &203138689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203138684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &261460818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1254,7 @@ GameObject:
   - component: {fileID: 697122370}
   - component: {fileID: 697122369}
   - component: {fileID: 697122368}
+  - component: {fileID: 697122371}
   m_Layer: 0
   m_Name: Assignments2Desk
   m_TagString: Untagged
@@ -1336,6 +1352,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.539597, y: 8.240126, z: 1}
   m_Center: {x: 0.1486206, y: -0.16723728, z: 0}
+--- !u!114 &697122371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697122366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &703578099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,6 +1617,7 @@ GameObject:
   - component: {fileID: 819917895}
   - component: {fileID: 819917894}
   - component: {fileID: 819917893}
+  - component: {fileID: 819917896}
   m_Layer: 0
   m_Name: Plant2Desk
   m_TagString: Untagged
@@ -1684,6 +1715,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &819917896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819917891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &966309574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1741,7 @@ GameObject:
   - component: {fileID: 966309578}
   - component: {fileID: 966309577}
   - component: {fileID: 966309576}
+  - component: {fileID: 966309579}
   m_Layer: 0
   m_Name: Desk2Laptop
   m_TagString: Untagged
@@ -1794,6 +1840,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &966309579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966309574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &978714462
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1866,7 @@ GameObject:
   - component: {fileID: 978714464}
   - component: {fileID: 978714465}
   - component: {fileID: 978714466}
+  - component: {fileID: 978714467}
   m_Layer: 0
   m_Name: Left Arrow
   m_TagString: Untagged
@@ -1904,6 +1965,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: -1
   toDoList: {fileID: 407330463}
+--- !u!114 &978714467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978714462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1068417091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,6 +1991,7 @@ GameObject:
   - component: {fileID: 1068417095}
   - component: {fileID: 1068417094}
   - component: {fileID: 1068417093}
+  - component: {fileID: 1068417096}
   m_Layer: 0
   m_Name: Desk2Plant
   m_TagString: Untagged
@@ -2013,6 +2089,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1068417096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068417091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1239515715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2115,7 @@ GameObject:
   - component: {fileID: 1239515717}
   - component: {fileID: 1239515719}
   - component: {fileID: 1239515718}
+  - component: {fileID: 1239515720}
   m_Layer: 0
   m_Name: EmailTabButton
   m_TagString: Untagged
@@ -2122,6 +2213,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabName: Email
+--- !u!114 &1239515720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239515715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1405116995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2134,6 +2239,7 @@ GameObject:
   - component: {fileID: 1405116998}
   - component: {fileID: 1405116997}
   - component: {fileID: 1405116999}
+  - component: {fileID: 1405117000}
   m_Layer: 0
   m_Name: Spigot
   m_TagString: Untagged
@@ -2230,6 +2336,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68dbb010535420418873b032ed68f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1405117000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405116995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1483590921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2623,7 @@ GameObject:
   - component: {fileID: 1675114146}
   - component: {fileID: 1675114147}
   - component: {fileID: 1675114145}
+  - component: {fileID: 1675114148}
   m_Layer: 0
   m_Name: SubmitButton
   m_TagString: Untagged
@@ -2599,6 +2720,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0940f0ff2269e1947be7558e2aadd1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1675114148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675114143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1864242098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,6 +2776,7 @@ GameObject:
   - component: {fileID: 1915747805}
   - component: {fileID: 1915747806}
   - component: {fileID: 1915747807}
+  - component: {fileID: 1915747808}
   m_Layer: 0
   m_Name: Right Arrow
   m_TagString: Untagged
@@ -2739,6 +2875,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   toDoList: {fileID: 407330463}
+--- !u!114 &1915747808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915747803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1963289260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2901,7 @@ GameObject:
   - component: {fileID: 1963289263}
   - component: {fileID: 1963289262}
   - component: {fileID: 1963289264}
+  - component: {fileID: 1963289265}
   m_Layer: 0
   m_Name: BottleStand
   m_TagString: Untagged
@@ -2848,6 +2999,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1963289265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963289260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &1985194949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3247,7 @@ GameObject:
   - component: {fileID: 2044674494}
   - component: {fileID: 2044674496}
   - component: {fileID: 2044674495}
+  - component: {fileID: 2044674497}
   m_Layer: 0
   m_Name: GameTabButton
   m_TagString: Untagged
@@ -3179,6 +3345,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabName: Game
+--- !u!114 &2044674497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044674492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1
 --- !u!1 &2124016539
 GameObject:
   m_ObjectHideFlags: 0

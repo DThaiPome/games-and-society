@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7617447904677589580}
   - component: {fileID: 1520455792146447783}
   - component: {fileID: 6903166593383364206}
+  - component: {fileID: 7925421576506374040}
   m_Layer: 0
   m_Name: ToDoItem
   m_TagString: Untagged
@@ -105,3 +106,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 1.132979, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7925421576506374040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4422263971360052477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e57728afc6d15944bed7158a3369d47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action: grow
+  magnitude: 1.1

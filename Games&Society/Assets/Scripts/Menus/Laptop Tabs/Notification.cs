@@ -10,7 +10,7 @@ public class Notification : MonoBehaviour
     void Start()
     {
         EventManager.instance.onNotificationEvent += this.show;
-        EventManager.instance.switchToMenuEvent += this.hideIfLaptop;
+        EventManager.instance.switchToMenuEvent += this.hideIfLaptopOrAssignment;
         this.hide();
     }
 
@@ -26,9 +26,9 @@ public class Notification : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void hideIfLaptop(string viewName)
+    private void hideIfLaptopOrAssignment(string viewName)
     {
-        if (viewName == "Laptop")
+        if (viewName == "Laptop" || viewName == "Assignment")
         {
             this.hide();
         }

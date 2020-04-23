@@ -110,7 +110,6 @@ public class ToDoList : MonoBehaviour
 
     private int pageCount()
     {
-        Debug.Log(this.assignments.Count + " / " + this.toDoItems.Count);
         return Mathf.Max(0, (this.assignments.Count - 1) / this.toDoItems.Count);
     }
 
