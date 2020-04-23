@@ -177,6 +177,8 @@ public class LightPuzzle : MonoBehaviour
         LightPuzzleNode lpn = LightPuzzleGen.instance.newNode(gridPos);
         this.nodes.Add(lpn);
         lpn.transform.SetParent(this.transform);
+        lpn.transform.localEulerAngles = new Vector3(0, 0, 0);
+        lpn.transform.localScale = new Vector3(1, 1, 1);
         return lpn;
     }
 

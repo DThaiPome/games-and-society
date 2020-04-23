@@ -26,6 +26,8 @@ public class LightPuzzleGen : MonoBehaviour
         GameObject g = Object.Instantiate(this.lightPuzzlePrefab);
         LightPuzzle lp = g.GetComponent<LightPuzzle>();
         g.transform.SetParent(t);
+        g.transform.localEulerAngles = new Vector3(0, 0, 0);
+        g.transform.localScale = new Vector3(1, 1, 1);
         lp.setLocalPos(pos);
         lp.initPuzzle(nodeCount);
         return lp;
