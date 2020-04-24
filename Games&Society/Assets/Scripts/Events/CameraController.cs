@@ -35,8 +35,8 @@ public class CameraController : MonoBehaviour
         Vector3 v3T = Camera.main.transform.localPosition;
         v3T.z = -fT;
         Camera.main.transform.localPosition = v3T;*/
-        float width = Mathf.Max(5, (10 * (Screen.height + this.viewWidth)) / (Screen.width));
-        Camera.main.orthographicSize = width;
+        //float width = Mathf.Max(5, (10 * (Screen.height + this.viewWidth)) / (Screen.width));
+        //Camera.main.orthographicSize = width;
     }
 
     private Vector2 getViewPos(string viewName)
