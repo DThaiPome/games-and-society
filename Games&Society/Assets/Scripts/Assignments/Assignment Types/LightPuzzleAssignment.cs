@@ -77,7 +77,7 @@ public class LightPuzzleAssignment : Assignment
         int minute = Utils.minutesToHourlyMinute(this.minuteDue);
         string hourText = hour < 10 ? "0" + hour : "" + hour;
         string minuteText = minute < 10 ? "0" + minute : "" + minute;
-        return "You have a new math assignment (" + this.assignmentCode() + ") due at " + hourText + ":" + minuteText;
+        return "(" + this.assignmentCode() + ") is due at " + hourText + ":" + minuteText + " - Turn all the squares red!";
     }
 
     public override string assignmentCode()
