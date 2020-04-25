@@ -17,7 +17,7 @@ public class SquirtBottle : MonoBehaviour
     [SerializeField]
     private Sprite defaultSprite;
     [SerializeField]
-    private Sprite tiltedSprite;
+    private Sprite emptySprite;
 
     private TickEvent waterRefillTick;
     private TickEvent squirtTick;
@@ -25,6 +25,15 @@ public class SquirtBottle : MonoBehaviour
 
     private bool squirting;
     private bool refilling;
+
+    private Vector3 rotation;
+    private Vector3 tilted;
+
+    void Awake()
+    {
+        this.rotation = new Vector3(this.transform.localEulerAngles.x, this.transform.localEulerAngles.y, this.transform.localEulerAngles.z);
+        this.tilted = this.rotation + new Vector3(0, 0, 30);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -138,11 +147,17 @@ public class SquirtBottle : MonoBehaviour
         SpriteRenderer sp = this.gameObject.GetComponent<SpriteRenderer>();
         if (this.squirting || this.refilling)
         {
-            sp.sprite = this.tiltedSprite;
+            sp.sprite = this.defaultSprite;
+            this.transform.localEulerAngles = this.tilted;
         }
-        else
+        else if (this.squirts > 0)
         {
             sp.sprite = this.defaultSprite;
+            this.transform.localEulerAngles = this.rotation;
+        } else
+        {
+            sp.sprite = this.emptySprite;
+            this.transform.localEulerAngles = this.rotation;
         }
     }
 
