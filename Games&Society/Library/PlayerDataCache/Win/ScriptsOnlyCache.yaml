@@ -586,7 +586,7 @@ ScriptsOnlyBuild:
     className: ObjectClicker
   - hash:
       serializedVersion: 2
-      Hash: 3b3f16890e7a2e9ed9b46746b6ee9052
+      Hash: 6d54a56902fd71ba94f1c6c13bdd547f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SquirtBottle
