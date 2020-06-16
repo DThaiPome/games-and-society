@@ -20,6 +20,8 @@ The game ends if your plant's health bottoms out, represented by a grey, wilted 
 
 # Code Design & Implementation
 
+Below are some notes & reflections about certain design choices made during this game's development:
+
 ## Events
 
 This is the first project in which I learned to use events to reduce dependencies. Most of the game is dependant on a timer that ticked every second, using the value of the timer (the number of seconds in the day, and the day) to advance the game. Additionally, many aspects of the game are further dependant on the assignments that were both created and submitted, this information being used to change the player's grade or add to the list of assignments that the player can view.
