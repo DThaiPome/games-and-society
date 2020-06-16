@@ -20,3 +20,17 @@ The game ends if your plant's health bottoms out, represented by a grey, wilted 
 
 # Code Design & Implementation
 
+## Events
+
+This is the first project in which I learned to use events to reduce dependencies. Most of the game was dependant on a timer that ticked every second, using the value of the timer (the number of seconds in the day, and the day) to advance the game. Additionally, many aspects of the game were further dependant on the assignments that were both created and submitted, used to change the player's grade or add to the list of assignments that the player can view.
+
+Instead of passing this information around through references and strict dependencies on other objects, every script simply listens to events broadcast by a singular EventManager. This means that if I wanted to edit or replace certain features that broadcast events to other scripts, like the timer or the assignment creation script, I would only have to modify how those events are broadcasted. How an object actually receives that event remains completely unmodified, which saves a lot of work and confusion.
+
+Adding an event is also fairly simple. I simply had to add the event to the EventManager class, then add a method that broadcasts the event if anything is listening to it.
+
+It was not relevant in this project, but I later learned that an object must explicitly be instructed to stop listening to events once its GameObject is destroyed.
+
+### Improvements
+
+The lone EventManager held a lot of events, and the script became fairly messy. Additionally, in order to reduce the amount of work needed to allow scripts to subscribe or unsubscribe from events, I simply gave every script direct access to the events, allowing them to also invoke the event, which is not intentional. In the future, I could find a better design that further decouples each script from the EventManager, and that properly protects the events themselves.
+
