@@ -22,9 +22,9 @@ The game ends if your plant's health bottoms out, represented by a grey, wilted 
 
 ## Events
 
-This is the first project in which I learned to use events to reduce dependencies. Most of the game was dependant on a timer that ticked every second, using the value of the timer (the number of seconds in the day, and the day) to advance the game. Additionally, many aspects of the game were further dependant on the assignments that were both created and submitted, used to change the player's grade or add to the list of assignments that the player can view.
+This is the first project in which I learned to use events to reduce dependencies. Most of the game is dependant on a timer that ticked every second, using the value of the timer (the number of seconds in the day, and the day) to advance the game. Additionally, many aspects of the game are further dependant on the assignments that were both created and submitted, this information being used to change the player's grade or add to the list of assignments that the player can view.
 
-Instead of passing this information around through references and strict dependencies on other objects, every script simply listens to events broadcast by a singular EventManager. This means that if I wanted to edit or replace certain features that broadcast events to other scripts, like the timer or the assignment creation script, I would only have to modify how those events are broadcasted. How an object actually receives that event remains completely unmodified, which saves a lot of work and confusion.
+Instead of passing this information around through references and strict dependencies on other objects, every script simply listens to events broadcasted by a singular EventManager. This means that if I wanted to edit or replace certain features that broadcast events to other scripts, like the timer or the assignment creation script, I would only have to modify how those events are broadcasted. How an object actually receives that event remains completely unmodified, which saves a lot of work and confusion.
 
 Adding an event is also fairly simple. I simply had to add the event to the EventManager class, then add a method that broadcasts the event if anything is listening to it.
 
@@ -32,5 +32,16 @@ It was not relevant in this project, but I later learned that an object must exp
 
 ### Improvements
 
-The lone EventManager held a lot of events, and the script became fairly messy. Additionally, in order to reduce the amount of work needed to allow scripts to subscribe or unsubscribe from events, I simply gave every script direct access to the events, allowing them to also invoke the event, which is not intentional. In the future, I could find a better design that further decouples each script from the EventManager, and that properly protects the events themselves.
+The lone EventManager holds a lot of events, and the script became fairly messy. Additionally, in order to reduce the amount of work needed to allow scripts to subscribe or unsubscribe from events, I simply gave every script direct access to the events, allowing them to also invoke the event, which is not intentional. In the future, I could find a better design that further decouples each script from the EventManager, and that properly protects the events themselves.
 
+## Assignments
+
+If this project is ever further expanded on, more types of assignments will be added. This fact is reflected by the design of the abstract class Assignment, which all assignments should extend. An assignment is required to support operations to generate an assignment's objects, produce a grade for the assignment, and produce text to display in the email that notifies the player of the assignment. This is in addition to more basic operations, such as showing or hiding the components of the assignment and destroying all of the assignment's objects once it is submitted.
+
+Through this design, I am able to handle general features like creating, displaying, submitting, and grading assignments, all of this being completely independant of what the assignment actually is. This means that adding new assignments is incredibly painless, and the completed assignment implementation can be viewed immediately in-game.
+
+### Improvements
+
+The assignments use only an abstract class, rather than an interface. Including an interface for the Assignment abstract class to implement would help to make the code more readable, and also decouple implementations of assignments further from the core game scripts.
+
+Additionally, I neglected to design the Lights Out! assignment with similar foresight, and so replacing or modifying that particular implementation could be difficult.
