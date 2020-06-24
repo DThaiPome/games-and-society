@@ -1,5 +1,7 @@
 Ryan Gehrlein - Design & Development
+
 Ava DiPietro - Design, UI Design & Art
+
 Elena Kosowski - Design & Art
 
 *(Author - Ryan Gehrlein)*
