@@ -28,6 +28,9 @@ public class GameTime : MonoBehaviour
         this.ticker.reset();
         this.ticker.start();
         EventManager.instance.onGameOverEvent += this.onGameOver;
+        EventManager.instance.onPauseGameEvent += this.onPause;
+        EventManager.instance.onUnpauseGameEvent += this.onUnpause;
+
         EventManager.instance.onMinute(this.day, this.minute, this.minutesInDay);
     }
 
@@ -57,5 +60,15 @@ public class GameTime : MonoBehaviour
     private void onGameOver()
     {
         this.ticker.stop();
+    }
+
+    private void onPause()
+    {
+        this.ticker.stop();
+    }
+
+    private void onUnpause()
+    {
+        this.ticker.start();
     }
 }

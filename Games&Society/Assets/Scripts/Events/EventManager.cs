@@ -22,6 +22,10 @@ public class EventManager : MonoBehaviour
     public event Action<Transform> onHoverExitEvent;
     //Game Over
     public event Action onGameOverEvent;
+    //Pause
+    public event Action onPauseGameEvent;
+    //Unpause
+    public event Action onUnpauseGameEvent;
 
     //** MENU EVENTS
     //Whenever the player tries to switch to a menu
@@ -263,6 +267,22 @@ public class EventManager : MonoBehaviour
         if (onGameOverEvent != null)
         {
             onGameOverEvent();
+        }
+    }
+
+    public void onPauseGame()
+    {
+        if (onPauseGameEvent != null)
+        {
+            onPauseGameEvent();
+        }
+    }
+
+    public void onUnpauseGame()
+    {
+        if (onUnpauseGameEvent != null)
+        {
+            onUnpauseGameEvent();
         }
     }
 
