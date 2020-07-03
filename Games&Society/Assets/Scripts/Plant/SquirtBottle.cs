@@ -41,6 +41,10 @@ public class SquirtBottle : MonoBehaviour
         EventManager.instance.onPlantClickedEvent += this.plantClicked;
         EventManager.instance.onBottleStandClickedEvent += this.bottleStandClicked;
         EventManager.instance.onSpigotClickedEvent += this.spigotClicked;
+
+        EventManager.instance.onPauseGameEvent += this.onPause;
+        EventManager.instance.onUnpauseGameEvent += this.onUnpause;
+
         this.waterRefillTick = EventManager.instance.newTickEvent(this.secondsPerRefill);
         this.waterRefillTick.register(this.refillSquirt);
         this.squirtTick = EventManager.instance.newTickEvent(this.secondsPerSquirt);
@@ -177,5 +181,18 @@ public class SquirtBottle : MonoBehaviour
     {
         Vector3 v = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return new Vector3(v.x, v.y, this.defaultPos.z);
+    }
+
+    private void onPause()
+    {
+        this.waterRefillTick.stop();
+    }
+
+    private void onUnpause()
+    {
+        if (this.refilling)
+        {
+            this.waterRefillTick.start();
+        }
     }
 }
