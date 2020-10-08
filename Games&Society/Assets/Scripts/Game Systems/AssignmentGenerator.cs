@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Unsurprisingly generates assignments
 public class AssignmentGenerator : MonoBehaviour
 {
     [SerializeField]
@@ -31,6 +32,7 @@ public class AssignmentGenerator : MonoBehaviour
         "Light Switch Puzzle"
     };
 
+    //This is time-based, so add the respective events
     void Start()
     {
         EventManager.instance.onDifficultyChangedEvent += this.setDifficulty;
@@ -39,17 +41,20 @@ public class AssignmentGenerator : MonoBehaviour
         this.initGenerator();
     }
 
-
+    //First time to generate an assignment
     private void initGenerator()
     {
         this.nextAssignmentTime = this.getNextAssignmentTime();
     }
-
+    
+    //Set the starting time every day
     private void onNextDay(int day)
     {
         this.initGenerator();
     }
 
+    //Randomizes the time at which an assignment is generated
+    //Also generates the assignment and broadcasts it as an event
     private void generateAssignmentAtTime(int day, int minute, int minutesPerDay)
     {
         if (minutesPerDay - minute > this.getNextCompletionTime())
@@ -64,18 +69,21 @@ public class AssignmentGenerator : MonoBehaviour
         }
     }
 
+    //Math for getting the new time to make an assignment
     private int getNextAssignmentTime()
     {
         float mod = 0.25f;
         return (int)Mathf.Round((float)this.baseAssignmentDelay / ((mod * this.difficulty) + 1));
     }
 
+    //Math to determine randomness
     private int getMaxDeviation()
     {
         float mod = (float)this.baseDeviation / (float)this.baseAssignmentDelay;
         return Mathf.Max((int)Mathf.Round(mod * this.getNextAssignmentTime()), this.minDeviation);
     }
 
+    //Generations an assignment however it needs to be generated, based on the assignment
     private Assignment generateAssignment(int minute)
     {
         switch (this.getRandomType()) {
@@ -103,6 +111,7 @@ public class AssignmentGenerator : MonoBehaviour
         return Mathf.Max((int)Mathf.Round((float)this.baseCompletionMinutes / ((mod * this.difficulty) + 1)), this.minCompletionMinutes);
     }
 
+    //The difficulty is changed every minute (real-time second)
     private void setDifficulty(float difficulty)
     {
         this.difficulty = difficulty;
