@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Represents an assignment sent to the notebook, that can be completed or late.
+//Implement this to add a new assignment.
 public abstract class Assignment
 {
     protected static int nextID;
@@ -13,9 +15,10 @@ public abstract class Assignment
 
     public bool overdue { get; private set; }
 
+    //Unique ID or each assignment
     public int id { get; private set; }
 
-
+    //Make a new assignment with a unique ID
     public Assignment(Transform transform, int minuteStart, int minuteDue, float difficulty)
     {
         this.transform = transform;
@@ -26,6 +29,8 @@ public abstract class Assignment
         nextID++;
     }
 
+    //This means that the assignment will be checked for being late
+    //every minute (real-time second)
     void Start()
     {
         EventManager.instance.onMinuteEvent += isOverDue;
